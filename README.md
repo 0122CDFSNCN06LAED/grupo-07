@@ -1,3 +1,3 @@
 # grupo-07
 
-$$ i\hbar $$
+$ i\hbar $
