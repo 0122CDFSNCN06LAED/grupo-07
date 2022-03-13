@@ -35,7 +35,8 @@ El equipo se encuentra conformado por:
 
 ## Sitios vinculados
 - [Autocity](https://www.autocity.com/)
-- [Kavak] (https://www.kavak.com/compra-de-autos)
-- [AutoHero] (https://www.autohero.com/es/search/)
-- [DeAutos] (http://www.deautos.com/)
-- [CarOne] (https://www.carone.com.ar/)
+- [Kavak](https://www.kavak.com/compra-de-autos)
+- [AutoHero](https://www.autohero.com/es/search/)
+- [DeAutos](http://www.deautos.com/)
+- [CarOne](https://www.carone.com.ar/)
+
