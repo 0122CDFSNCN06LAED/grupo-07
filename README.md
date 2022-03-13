@@ -28,10 +28,19 @@ Como escalabilidad del proyecto podríamos mencionar:
 ## Equipo de trabajo
 El equipo se encuentra conformado por:
 
-- Virginia Navarro (completar)
-- Carlos Gordillo Olivera (completar)
-- Rodrigo Cernuda (completar)
-- German Siriani, espiritu emprendedor, algo de experiencia en desarrollo web con HTML+CSS+PHP+MySQL y muchas ganas de aportar en el proyecto y especialmente en el trabajo del equipo.
+- [Virginia Navarro](https://github.com/VirNavarro):
+> Completar
+
+- [Carlos Gordillo Olivera](https://github.com/carlosng95): 
+> Soy Licenciatura en Física y Master en Física Médica en el
+> Instituto Balseiro. 26 años. Docente en FI-UNSJ. Actualmente Data
+> Scientist con especial interés en Deep Learning. Músico, pianista.
+
+- [Rodrigo Cernuda](https://github.com/RodriCer): 
+>(completar)
+
+- [German Siriani](https://github.com/germansiriani):
+> Espiritu emprendedor, algo de experiencia en desarrollo web con HTML+CSS+PHP+MySQL y muchas ganas de aportar en el proyecto y especialmente en el trabajo del equipo.
 
 ## Sitios vinculados
 - [Autocity](https://www.autocity.com/)
