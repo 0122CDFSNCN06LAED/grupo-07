@@ -32,3 +32,10 @@ El equipo se encuentra conformado por:
 - Carlos Gordillo Olivera (completar)
 - Rodrigo Cernuda (completar)
 - German Siriani, espiritu emprendedor, algo de experiencia en desarrollo web con HTML+CSS+PHP+MySQL y muchas ganas de aportar en el proyecto y especialmente en el trabajo del equipo.
+
+## Sitios vinculados
+- [Autocity] (https://www.autocity.com/)
+- [Kavak] (https://www.kavak.com/compra-de-autos)
+- [AutoHero] (https://www.autohero.com/es/search/)
+- [DeAutos] (http://www.deautos.com/)
+- [CarOne] (https://www.carone.com.ar/)
