@@ -37,7 +37,9 @@ El equipo se encuentra conformado por:
 > Scientist con especial interés en Deep Learning. Músico, pianista.
 
 - [Rodrigo Cernuda](https://github.com/RodriCer): 
->(completar)
+>Estudiante de Ingenieria Industrial. 27 años.
+>Trabajo en la industria metalurgica y me gusta adquirir constantemente conocimientos nuevos.
+
 
 - [German Siriani](https://github.com/germansiriani):
 > Espiritu emprendedor, algo de experiencia en desarrollo web con HTML+CSS+PHP+MySQL y muchas ganas de aportar en el proyecto y especialmente en el trabajo del equipo.
