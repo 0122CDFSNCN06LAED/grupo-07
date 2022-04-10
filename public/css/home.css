@@ -1,0 +1,39 @@
+footer {
+  background-color: #3d4549;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer_left,
+.footer_right,
+.footer_center {
+  width: 25vw;
+  padding: 20px;
+  color: white;
+}
+
+.social_media {
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+}
+
+.contact,
+.social_media,
+.offices {
+  margin-top: 10px;
+}
+
+footer h2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Tablet + */
+@media (min-width: 480px) {
+}
+
+/* Laptop + */
+@media (min-width: 768px) {
+}
