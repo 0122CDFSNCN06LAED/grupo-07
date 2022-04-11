@@ -1,0 +1,45 @@
+footer {
+  background-color: #3d4549;
+  margin: auto;
+  display: block;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer_left,
+.footer_right,
+.footer_center,
+.copyright {
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.social_media {
+  display: flex;
+  justify-content: space-around;
+  font-size: 30px;
+}
+
+.contact,
+.social_media,
+.offices {
+  margin-top: 10px;
+}
+
+footer h2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (min-width: 368px) {
+  footer {
+    display: flex;
+  }
+  .footer_left,
+  .footer_right,
+  .footer_center,
+  .copyright {
+    width: calc(33vw - 1px);
+  }
+}

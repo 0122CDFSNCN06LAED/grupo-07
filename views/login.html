@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <h1>Header</h1>
+    </header>
+    <main>
+      <div class="register_container">
+        <h2>Iniciar sesión</h2>
+
+        <div class="register_email">
+          <h4>Correo electrónico</h4>
+          <input
+            class="input"
+            type="email"
+            name="email"
+            id="login_email"
+            placeholder=""
+          />
+        </div>
+
+        <div class="register_password">
+          <h4>Contraseña</h4>
+          <input
+            class="input"
+            type="password"
+            name="password"
+            id="login_password"
+            placeholder=""
+          />
+        </div>
+
+        <div class="recordar">
+          <input
+            type="checkbox"
+            name="recordar"
+            id="recordar"
+            value="recordar"
+          />
+          <label for="recordar">Recordarme</label>
+        </div>
+
+        <div class="buttons">
+          <button class="button-send" type="submit">Enviar</button>
+          <button class="button-reset" type="reset">Reestablecer</button>
+        </div>
+        <div class="privacidad">
+          <p>
+            Al continuar aceptas las
+            <a href="">Condiciones de Uso</a> y el
+            <a href="#">Aviso de Privacidad</a>.
+          </p>
+        </div>
+
+        <div class="cuenta_existente">
+          <p>¿Eres nuevo? <a href="/register">Crea una cuenta</a></p>
+          <p><a href="">¿Olvidaste la contraseña?</a></p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer_left">
+        <h3>Nuestras oficinas</h3>
+        <div class="offices">
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Buenos Aires</span>
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Mendoza</span>
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Córdoba</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer_center">
+        <h3>Contacto</h3>
+        <div class="contact">
+          <p>
+            <i class="fas fa-phone"></i>
+            <span>+54 9 11 5555-5555</span>
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <span>contacto@concesionariaX.com</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer_right">
+        <h3>Nuestras redes sociales</h3>
+        <div class="social_media">
+          <a href="#">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter-square"></i>
+          </a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          <i class="far fa-copyright"></i>
+          <span>Copyright 2020-2022</span>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

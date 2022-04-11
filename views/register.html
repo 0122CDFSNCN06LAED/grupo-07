@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <header>
+      <h1>Header</h1>
+    </header>
+    <main>
+      <div class="register_container">
+        <h2>Crea tu cuenta</h2>
+
+        <div class="register_nombre">
+          <h4>Nombre y apellido</h4>
+          <input
+            class="input"
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder=""
+          />
+        </div>
+
+        <div class="register_usuario">
+          <h4>Usuario</h4>
+          <input
+            class="input"
+            type="text"
+            name="username"
+            id="username"
+            placeholder=""
+          />
+        </div>
+
+        <div class="register_email">
+          <h4>Correo electrónico</h4>
+          <input
+            class="input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder=""
+          />
+        </div>
+
+        <div class="register_password">
+          <h4>Contraseña</h4>
+          <input
+            class="input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Como mínimo 6 caracteres"
+          />
+        </div>
+
+        <div class="register_confirm_password">
+          <h4>Confirmar contraseña</h4>
+          <input
+            class="input"
+            type="password"
+            name="confirm_password"
+            id="confirm_password"
+            placeholder=""
+          />
+        </div>
+
+        <div class="register_birthdate">
+          <h4>Fecha de nacimiento</h4>
+          <input
+            class="input"
+            type="date"
+            name="birthdate"
+            id="birthdate"
+            placeholder=""
+          />
+        </div>
+
+        <div class="buttons">
+          <button class="button-send" type="submit">Enviar</button>
+          <button class="button-reset" type="reset">Reestablecer</button>
+        </div>
+        <div class="privacidad">
+          <p>
+            Al crear una cuenta, aceptas las
+            <a href="#">Condiciones de Uso</a> y el
+            <a href="#">Aviso de Privacidad</a>.
+          </p>
+        </div>
+
+        <div class="cuenta_existente">
+          <p>¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer_left">
+        <h3>Nuestras oficinas</h3>
+        <div class="offices">
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Buenos Aires</span>
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Mendoza</span>
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Córdoba</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer_center">
+        <h3>Contacto</h3>
+        <div class="contact">
+          <p>
+            <i class="fas fa-phone"></i>
+            <span>+54 9 11 5555-5555</span>
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <span>contacto@autosX.com</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer_right">
+        <h3>Nuestras redes sociales</h3>
+        <div class="social_media">
+          <a href="#">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter-square"></i>
+          </a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          <i class="far fa-copyright"></i>
+          <span>Copyright 2020-2022</span>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
