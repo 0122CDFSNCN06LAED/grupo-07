@@ -2,9 +2,9 @@
   "name": "grupo-07",
   "version": "1.0.0",
   "description": "Nuestra propuesta de E-Commerce/Marketplace se basa en la compra y venta de vehiculos.",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
