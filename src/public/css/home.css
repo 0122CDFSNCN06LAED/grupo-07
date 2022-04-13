@@ -1,7 +1,20 @@
+.main-header {
+  background-color: #ffffff;
+  padding: 20px;
+}
 
+.logo {
+  width: 250px;
+}
 
 /* Tablet + */
 @media (min-width: 480px) {
+  .main-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 }
 
 /* Laptop + */
