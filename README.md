@@ -35,7 +35,7 @@ El equipo se encuentra conformado por:
 - [Virginia Navarro](https://github.com/VirNavarro):
 
   > Tengo 27 años, estudio en UTN una Tecnicatura Superior en Informatica. 
-  > Trabajo como desarrolladora Frontend. Me gusta la ciencia, harry potter y los gatos. <3 
+  > Trabajo como desarrolladora Frontend. Me gusta la ciencia, mirar serie, leer y los gatitos 
 
 - [Carlos Gordillo Olivera](https://github.com/carlosng95):
 
