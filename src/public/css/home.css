@@ -28,22 +28,96 @@
 }
 
 .search-input {
-  width: 100%;
+  min-width: 40vw;
+  max-width: 500px;
+  width: 95vw;
   padding: 9px;
   border: none;
   border-radius: 5px;
+  justify-content: center;
 }
 
 .search-button {
-  position: absolute;
-  right: 130px;
-  padding-top: 8px;
-  padding-bottom: 3px;
   border: none;
   border-radius: 5px;
-  background: none;
+  background: white;
   color: #3d4549;
   font-size: 16px;
+  min-width: 30px;
+  width: 20vw;
+  max-width: 50px;
+}
+
+.search-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 33vw;
+  padding: 0 8px;
+}
+
+.item-logo {
+  width: 33%;
+}
+
+.navbar {
+  font-size: 10px;
+}
+
+.img-product {
+  padding: 10px;
+}
+.size-img {
+  width: 70vw;
+}
+
+.product-card {
+  width: 80vw;
+  display: block;
+  justify-content: center;
+  margin: auto;
+}
+
+.description-product {
+  border-top: 2px solid #bebebe;
+}
+.img-product {
+  text-align: center;
+}
+
+.name {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  color: #059393;
+}
+
+.detail {
+  width: 100%;
+}
+
+.price {
+  width: 100%;
+  font-weight: 800;
+}
+
+.products-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.description-product {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 @media (min-width: 460px) {
@@ -53,15 +127,6 @@
   }
   .container-header-top {
     display: flex;
-  }
-
-  .logo {
-    width: 100px;
-    padding: 0 8px;
-  }
-
-  .item-logo {
-    width: 33%;
   }
 
   .hamburguer-buttom {
@@ -79,54 +144,25 @@
 
   .navbar {
     display: none;
+    font-size: 20px;
+  }
+
+  .search-button {
+    max-width: 50px;
+    min-width: 30px;
   }
 
   /*---------Products-------*/
 
-  .products-section {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
   .product-card {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
-    margin-top: 20px;
-    width: 100%;
+    margin-top: 40px;
+    width: 90vw;
     max-width: 680px;
-  }
-
-  .description-product {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    margin: 5px;
-    border-top: 1px solid rgb(114, 110, 110);
   }
 
   .img-product {
     text-align: center;
-  }
-
-  .size-img {
-    width: 400px;
-  }
-
-  .name {
-    width: 100%;
-    font-size: 20px;
-    font-weight: 500;
-    color: #059393;
-  }
-
-  .detail {
-    width: 100%;
-  }
-
-  .price {
-    width: 100%;
-    font-weight: 800;
   }
 }
 
