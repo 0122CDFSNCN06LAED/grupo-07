@@ -13,4 +13,7 @@ module.exports = {
   carrito: (req, res) => {
     res.sendFile(path.join(__dirname, "../views/carrito-compras.html"));
   },
+  description: (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/description.html"));
+  },
 };

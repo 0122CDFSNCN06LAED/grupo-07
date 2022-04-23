@@ -28,22 +28,146 @@
 }
 
 .search-input {
-  width: 100%;
+  min-width: 40vw;
+  max-width: 500px;
+  width: 95vw;
   padding: 9px;
   border: none;
   border-radius: 5px;
+  justify-content: center;
 }
 
 .search-button {
-  position: absolute;
-  right: 130px;
-  padding-top: 8px;
-  padding-bottom: 3px;
   border: none;
   border-radius: 5px;
-  background: none;
+  background: white;
   color: #3d4549;
   font-size: 16px;
+  min-width: 30px;
+  width: 20vw;
+  max-width: 50px;
+}
+
+.search-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 33vw;
+  padding: 0 8px;
+}
+
+.item-logo {
+  width: 33%;
+}
+
+.navbar {
+  font-size: 10px;
+}
+
+.img-product {
+  padding: 10px;
+}
+.size-img {
+  width: 70vw;
+}
+
+.product-card {
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  margin-bottom: 16px;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+/* .product-card {
+  width: 80vw;
+  display: block;
+  justify-content: center;
+  margin: auto;
+} */
+
+.description-product {
+  border-top: 2px solid #bebebe;
+}
+.img-product {
+  text-align: center;
+}
+
+.name {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  color: #059393;
+}
+
+.detail {
+  width: 100%;
+}
+
+.titler {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.price {
+  width: 100%;
+  font-weight: 800;
+}
+
+.products-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.description-product {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.h3-description {
+  margin-left: 10%;
+  text-shadow: #06314a;
+}
+
+.h3-description-title {
+  margin-left: 10%;
+  text-shadow: #06314a;
+}
+
+.h4-text-bold {
+  font-weight: bold;
+  margin-left: 15%;
+  text-shadow: #06314a;
+}
+
+.h5-text {
+  margin-left: 20%;
+  text-shadow: #06314a;
+}
+
+.margin-top {
+  margin-top: 50px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+.h3-discount {
+  color: rgb(11, 167, 5);
+}
+
+.h1-final-price {
+  font-weight: bold;
+  color: rgb(4, 7, 150);
 }
 
 @media (min-width: 460px) {
@@ -55,20 +179,14 @@
     display: flex;
   }
 
-  .logo {
-    width: 100px;
-    padding: 0 8px;
-  }
-
-  .item-logo {
-    width: 33%;
-  }
-
   .hamburguer-buttom {
     width: 50%;
   }
 
   .title-header {
+    font-family: Calibri;
+    color: white;
+    text-shadow: 0px 0px 9px #06314a;
     display: block;
     width: 33%;
     text-align: center;
@@ -79,54 +197,31 @@
 
   .navbar {
     display: none;
+    font-size: 20px;
+  }
+
+  .search-button {
+    max-width: 50px;
+    min-width: 30px;
   }
 
   /*---------Products-------*/
 
-  .products-section {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
   .product-card {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
-    margin-top: 20px;
-    width: 100%;
+    margin-top: 40px;
+    width: 90vw;
     max-width: 680px;
-  }
-
-  .description-product {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    margin: 5px;
-    border-top: 1px solid rgb(114, 110, 110);
   }
 
   .img-product {
     text-align: center;
   }
 
-  .size-img {
-    width: 400px;
-  }
-
-  .name {
+  .banner {
     width: 100%;
-    font-size: 20px;
-    font-weight: 500;
-    color: #059393;
-  }
-
-  .detail {
-    width: 100%;
-  }
-
-  .price {
-    width: 100%;
-    font-weight: 800;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 
@@ -177,7 +272,7 @@
 
   .items-navbar {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     flex-wrap: wrap;
     font-weight: 500;
   }
@@ -197,11 +292,19 @@
 
   .product-card {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
-    width: 47%;
+    width: 45%;
   }
 
   .size-img {
     width: 300px;
+  }
+
+  .cube {
+    margin-top: 40px;
+    box-shadow: 0px 0px 50px rgb(100, 100, 100);
+    margin-left: 9%;
+    margin-right: 9%;
+    width: 80%;
   }
 }
 
@@ -217,11 +320,20 @@
   .product-card {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 22%;
+  }
+
+  .product-card:hover {
+    box-shadow: 0px 0px 30px rgb(34, 83, 118);
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     width: 22%;
   }
 
   .size-img {
-    width: 280px;
+    width: 270px;
   }
 }

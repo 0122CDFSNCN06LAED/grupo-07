@@ -13,3 +13,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.search-input {
+  max-width: 1000px;
+}

@@ -7,5 +7,6 @@ router.get("/", mainController.home);
 router.get("/register", mainController.register);
 router.get("/login", mainController.login);
 router.get("/carrito-compras", mainController.carrito);
+router.get("/description", mainController.description);
 
 module.exports = router;
