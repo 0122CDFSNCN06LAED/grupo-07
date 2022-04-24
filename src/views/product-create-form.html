@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/product-create-form.css" />
+    <script
+      src="https://kit.fontawesome.com/d1ef198698.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Raleway:wght@200;300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Creacion de producto</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container-header-top">
+        <p class="item-logo">
+          <a href="/">
+            <img src="/img/logo.svg" alt="En ruedas" class="logo" />
+          </a>
+        </p>
+        <a href="#" class="hamburguer-buttom">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+        <p class="title-header">EN RUEDAS</p>
+      </div>
+      <div class="navbar">
+        <ul class="items-navbar">
+          <li><a href="">Compra tu auto </a></li>
+          <li><a href="">Financia tu auto</a></li>
+          <li><a href="">Vende tu auto</a></li>
+          <li>
+            <a href="/login">Ingresá</a>
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <h2 class="title-form">Creá un producto</h2>     
+      <form action="">
+        <div class="register_container">       
+          <div class="name-product">
+            <h4 class="item-title">Indica marca y modelo de tu vehículo </h4>
+            <input
+              class="input"
+              type="text"
+              name="productname"
+              id="productname"
+              placeholder="Ej: Ford Fiesta"
+            />
+          </div>
+          <div class="version-product">
+            <h4 class="item-title">¿Cúal es la version? </h4>
+            <input
+              class="input"
+              type="text"
+              name="productname"
+              id="productname"
+              placeholder="Ej: 1.6 SE Plus"
+            />
+          </div>
+          <div class="category-product">
+            <h4 class="item-title">¿A qué categoría pertenece?</h4>
+            <select class="input" name="category" id="category">
+              <option value="">Elegí una opcion</option>
+              <option value="new">Nuevo</option>
+              <option value="used">Usado</option>
+            </select>
+          </div>
+          <div class="color-product">
+            <h4 class="item-title">Color</h4>
+            <input class="input" type="text" name="color" id="color" placeholder="Ej: Rojo"/>
+          </div>
+          <div class="number-doors" >
+            <h4 class="item-title">Numero de puertas</h4>
+            <input class="input" type="number" name="doors" id="doors" placeholder="Ej: 5"/>
+            <div class="container-message-alert">
+              <p class="icon-message-alert"><i class="fa-solid fa-triangle-exclamation" class=></i></p>
+              <p class="message-alert">Solo números</p>
+            </div>
+          </div>
+          <div class="trasmition">
+            <h4 class="item-title">Trasmición</h4>
+            <input class="input" type="text" name="trasmition" id="trasmition" placeholder="Ej: Manual"/></div>
+          <div class="fuel-type">
+            <h4 class="item-title">Tipo de combustible</h4>
+            <input class="input" type="text" name="fuel-type" id="fuel-type" placeholder="Ej: Nafta" />
+          </div>
+          <div>
+            <h4 class="item-title">Carga una imagen</h4>
+            <input
+            type="file"
+            name="productPic"
+            id="productPic"
+            class="input"
+          />
+          </div>
+          <div class="price-product">
+            <h4 class="item-title">Precio</h4>
+            <input class="input" type="number" name="price" id="price" />
+          </div>
+          <div class="buttons">
+            <button class="button-send" type="submit">Crear</button>
+          </div>
+      </form>     
+    </main>
+    <footer>
+      <div class="footer_left">
+        <h3>Nuestras oficinas</h3>
+        <div class="offices">
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Buenos Aires</span>
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Mendoza</span>
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Córdoba</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer_center">
+        <h3>Contacto</h3>
+        <div class="contact">
+          <p>
+            <i class="fas fa-phone"></i>
+            <span>+54 9 11 5555-5555</span>
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <span>contacto@autosX.com</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer_right">
+        <h3>Nuestras redes sociales</h3>
+        <div class="social_media">
+          <a href="#">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter-square"></i>
+          </a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          <i class="far fa-copyright"></i>
+          <span>Copyright 2020-2022</span>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

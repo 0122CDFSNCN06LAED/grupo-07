@@ -20,43 +20,8 @@
   margin-top: 5px;
 }
 
-/*--------Searcher--------*/
-
-.search {
-  background-color: #3d4549;
-  padding: 8px 120px;
-}
-
-.search-input {
-  min-width: 40vw;
-  max-width: 500px;
-  width: 95vw;
-  padding: 9px;
-  border: none;
-  border-radius: 5px;
-  justify-content: center;
-}
-
-.search-button {
-  border: none;
-  border-radius: 5px;
-  background: white;
-  color: #3d4549;
-  font-size: 16px;
-  min-width: 30px;
-  width: 20vw;
-  max-width: 50px;
-}
-
-.search-container {
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
 .logo {
-  width: 33vw;
+  width: 100px;
   padding: 0 8px;
 }
 
@@ -81,16 +46,11 @@
   margin-right: 16px;
   margin-left: 16px;
 }
-/* .product-card {
-  width: 80vw;
-  display: block;
-  justify-content: center;
-  margin: auto;
-} */
 
 .description-product {
   border-top: 2px solid #bebebe;
 }
+
 .img-product {
   text-align: center;
 }
@@ -100,10 +60,12 @@
   font-size: 20px;
   font-weight: 500;
   color: #059393;
+  margin-bottom: 0;
 }
 
 .detail {
   width: 100%;
+  margin-bottom: 0;
 }
 
 .titler {
@@ -114,6 +76,7 @@
 .price {
   width: 100%;
   font-weight: 800;
+  margin-bottom: 0;
 }
 
 .products-section {
@@ -175,6 +138,7 @@
   .header {
     padding: 0 20px;
   }
+
   .container-header-top {
     display: flex;
   }
@@ -183,10 +147,22 @@
     width: 50%;
   }
 
+  .logo {
+    width: 100px;
+    padding: 0 8px;
+  }
+
+  .item-logo {
+    width: 33%;
+  }
+
+  .hamburguer-buttom {
+    width: 50%;
+    padding-top: 7px;
+  }
+
   .title-header {
-    font-family: Calibri;
-    color: white;
-    text-shadow: 0px 0px 9px #06314a;
+    color: black;
     display: block;
     width: 33%;
     text-align: center;
@@ -275,6 +251,7 @@
     justify-content: center;
     flex-wrap: wrap;
     font-weight: 500;
+    margin-bottom: 0;
   }
 
   .items-navbar li {
