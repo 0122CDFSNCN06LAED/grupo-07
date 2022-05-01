@@ -4,6 +4,9 @@ const app = express();
 const mainRouter = require("./routes/main-routes");
 const productsRouter = require("./routes/products-router");
 
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(mainRouter);
 

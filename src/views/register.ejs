@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <header class="header"><%- include("./partials/header.ejs")%></header>
+    <main>
+      <div class="register_container">
+        <h2>Crea tu cuenta</h2>
+
+        <div class="register_nombre">
+          <h4>Nombre y apellido</h4>
+          <input
+            class="input"
+            type="text"
+            name="fullname"
+            id="fullname"
+            placeholder=""
+          />
+        </div>
+
+        <div class="register_usuario">
+          <h4>Usuario</h4>
+          <input
+            class="input"
+            type="text"
+            name="username"
+            id="username"
+            placeholder=""
+          />
+        </div>
+
+        <div class="register_email">
+          <h4>Correo electrónico</h4>
+          <input
+            class="input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder=""
+          />
+        </div>
+
+        <div class="register_password">
+          <h4>Contraseña</h4>
+          <input
+            class="input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Como mínimo 6 caracteres"
+          />
+        </div>
+
+        <div class="register_confirm_password">
+          <h4>Confirmar contraseña</h4>
+          <input
+            class="input"
+            type="password"
+            name="confirm_password"
+            id="confirm_password"
+            placeholder=""
+          />
+        </div>
+
+        <div class="register_birthdate">
+          <h4>Fecha de nacimiento</h4>
+          <input
+            class="input"
+            type="date"
+            name="birthdate"
+            id="birthdate"
+            placeholder=""
+          />
+        </div>
+
+        <div class="buttons">
+          <button class="button-send" type="submit">Enviar</button>
+          <button class="button-reset" type="reset">Reestablecer</button>
+        </div>
+        <div class="privacidad">
+          <p>
+            Al crear una cuenta, aceptas las
+            <a href="#">Condiciones de Uso</a> y el
+            <a href="#">Aviso de Privacidad</a>.
+          </p>
+        </div>
+
+        <div class="cuenta_existente">
+          <p>¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
+        </div>
+      </div>
+    </main>
+    <footer><%- include("./partials/footer.ejs")%></footer>
+  </body>
+  <p class="copyright">Copyright © 2020-2022 X S.R.L</p>
+</html>

@@ -1,14 +1,43 @@
-const res = require("express/lib/response");
-const path = require("path");
+const PRODUCTS = [
+  {
+    id: 1,
+    name: "Ford Ka",
+    description: "Detalle",
+    price: 2770000,
+  },
+  {
+    id: 2,
+    name: "Ford Ka",
+    description: "Detalle",
+    price: 2770000,
+  },
+  {
+    id: 3,
+    name: "Ford Ka",
+    description: "Detalle",
+    price: 2770000,
+  },
+  {
+    id: 4,
+    name: "Ford Ka",
+    description: "Detalle",
+    price: 2770000,
+  },
+];
 
 module.exports = {
   index: (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/products.html"));
+    res.render("products", {
+      products: PRODUCTS,
+    });
   },
   create: (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/product-create-form.html"));
+    res.render("product-create-form");
   },
   edit: (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/product-edit-form.html"));
+    res.render("product-edit-form");
+  },
+  description: (req, res) => {
+    res.render("description");
   },
 };

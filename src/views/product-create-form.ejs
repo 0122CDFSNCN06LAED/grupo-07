@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <header class="header"><%- include("./partials/header.ejs")%></header>
+    <main>
+      <h2 class="title-form">Creá un producto</h2>     
+      <form action="">
+        <div class="register_container">       
+          <div class="name-product">
+            <h4 class="item-title">Indica marca y modelo de tu vehículo </h4>
+            <input
+              class="input"
+              type="text"
+              name="productname"
+              id="productname"
+              placeholder="Ej: Ford Fiesta"
+            />
+          </div>
+          <div class="version-product">
+            <h4 class="item-title">¿Cúal es la version? </h4>
+            <input
+              class="input"
+              type="text"
+              name="productname"
+              id="productname"
+              placeholder="Ej: 1.6 SE Plus"
+            />
+          </div>
+          <div class="category-product">
+            <h4 class="item-title">¿A qué categoría pertenece?</h4>
+            <select class="input" name="category" id="category">
+              <option value="">Elegí una opcion</option>
+              <option value="new">Nuevo</option>
+              <option value="used">Usado</option>
+            </select>
+          </div>
+          <div class="color-product">
+            <h4 class="item-title">Color</h4>
+            <input class="input" type="text" name="color" id="color" placeholder="Ej: Rojo"/>
+          </div>
+          <div class="number-doors" >
+            <h4 class="item-title">Numero de puertas</h4>
+            <input class="input" type="number" name="doors" id="doors" placeholder="Ej: 5"/>
+            <div class="container-message-alert">
+              <p class="icon-message-alert"><i class="fa-solid fa-triangle-exclamation" class=></i></p>
+              <p class="message-alert">Solo números</p>
+            </div>
+          </div>
+          <div class="trasmition">
+            <h4 class="item-title">Trasmición</h4>
+            <input class="input" type="text" name="trasmition" id="trasmition" placeholder="Ej: Manual"/></div>
+          <div class="fuel-type">
+            <h4 class="item-title">Tipo de combustible</h4>
+            <input class="input" type="text" name="fuel-type" id="fuel-type" placeholder="Ej: Nafta" />
+          </div>
+          <div>
+            <h4 class="item-title">Carga una imagen</h4>
+            <input
+            type="file"
+            name="productPic"
+            id="productPic"
+            class="input"
+          />
+          </div>
+          <div class="price-product">
+            <h4 class="item-title">Precio</h4>
+            <input class="input" type="number" name="price" id="price" />
+          </div>
+          <div class="buttons">
+            <button class="button-send" type="submit">Crear</button>
+          </div>
+      </form>
+    </main>
+    <footer><%- include("./partials/footer.ejs")%></footer>
+  </body>
+  <p class="copyright">Copyright © 2020-2022 X S.R.L</p>
+</html>

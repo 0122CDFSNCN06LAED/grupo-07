@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <header class="header"><%- include("./partials/header.ejs")%></header>
+    <main>
+      <div class="container-title">
+        <h1 class="title">Encontra tu auto!</h1>
+      </div>
+      <div><%- include("./partials/searcher.ejs") %></div>
+      <section class="products-section">
+        <%- include("./partials/product-card") %>
+      </section>
+    </main>
+    <footer><%- include("./partials/footer.ejs")%></footer>
+  </body>
+  <p class="copyright">Copyright © 2020-2022 X S.R.L</p>
+</html>

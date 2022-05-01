@@ -6,6 +6,5 @@ const mainController = require("../controllers/main-controller");
 router.get("/", mainController.home);
 router.get("/register", mainController.register);
 router.get("/login", mainController.login);
-router.get("/description", mainController.description);
 
 module.exports = router;

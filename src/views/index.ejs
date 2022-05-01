@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <header class="header"><%- include("./partials/header.ejs")%></header>
+    <main>
+      <%- include("./partials/carrousel.ejs") %>
+      <h1 class="titler">¡Los vehículos más consultados!</h1>
+      <section class="products-section">
+        <%- include("./partials/product-card") %>
+      </section>
+      <img src="img/banner.png" class="banner cube" />
+    </main>
+    <footer><%- include("./partials/footer.ejs")%></footer>
+  </body>
+  <p class="copyright">Copyright © 2020-2022 X S.R.L</p>
+</html>
