@@ -1,0 +1,14 @@
+<% products.forEach(product => { %>
+<div class="product-card">
+  <a href="/description">
+    <div class="img-product">
+      <img src="/img/ka.svg" alt="Ford Ka" class="size-img" />
+    </div>
+    <div class="description-product">
+      <p class="name"><%= product.name %></p>
+      <p class="detail"><%= product.detail %></p>
+      <p class="price"><%= product.price %></p>
+    </div>
+  </a>
+</div>
+<% }) %>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <header class="header"><%- include("./partials/header.ejs")%></header>
+    <main>
+      <div class="register_container">
+        <h2>Iniciar sesión</h2>
+        <div class="register_email">
+          <h4>Correo electrónico</h4>
+          <input
+            class="input"
+            type="email"
+            name="email"
+            id="login_email"
+            placeholder=""
+          />
+        </div>
+        <div class="register_password">
+          <h4>Contraseña</h4>
+          <input
+            class="input"
+            type="password"
+            name="password"
+            id="login_password"
+            placeholder=""
+          />
+        </div>
+        <div class="recordar">
+          <input
+            type="checkbox"
+            name="recordar"
+            id="recordar"
+            value="recordar"
+          />
+          <label for="recordar">Recordarme</label>
+        </div>
+        <div class="buttons">
+          <button class="button-send" type="submit">Enviar</button>
+          <button class="button-reset" type="reset">Reestablecer</button>
+        </div>
+        <div class="privacidad">
+          <p>
+            Al continuar aceptas las
+            <a href="">Condiciones de Uso</a> y el
+            <a href="#">Aviso de Privacidad</a>.
+          </p>
+        </div>
+        <div class="cuenta_existente">
+          <p>¿Eres nuevo? <a href="/register">Crea una cuenta</a></p>
+          <p><a href="">¿Olvidaste la contraseña?</a></p>
+        </div>
+      </div>
+    </main>
+    <footer><%- include("./partials/footer.ejs")%></footer>
+  </body>
+  <p class="copyright">Copyright © 2020-2022 X S.R.L</p>
+</html>
