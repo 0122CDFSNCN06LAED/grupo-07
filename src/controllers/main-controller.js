@@ -37,6 +37,13 @@ module.exports = {
     res.render("register");
   },
   login: (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/login.html"));
+  },
+  carrito: (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/carrito-compras.html"));
+  },
+  description: (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/description.html"));
     res.render("login");
   },
 };

@@ -1,0 +1,134 @@
+.main-top{
+    display:flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 40px;
+    box-sizing: border-box;
+
+
+};
+
+.delete-button{
+    display: block;
+    margin-left: 20px;
+    margin-right: 50px;
+    font-size: 27px;
+    border:none;
+    padding: 7px;
+    border-radius: 6px;
+    background-color: #ebebeb;    
+}
+
+.booking-title{
+    display: block;
+    align-items: center;
+    margin-left: 40px;
+    border: solid 2px;
+    border-radius: 20px;
+    padding: 10px;
+    flex-grow: 0.3;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+};
+
+.booking{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+
+};
+
+.booking-text{
+    font-size: 23px;
+    font-weight: bold;
+    text-decoration: underline;
+    box-sizing: border-box;
+
+}
+
+.booking-price{
+    font-size: 23px;
+    font-weight: bold;
+    box-sizing: border-box;
+
+}
+
+.trash-button{
+    font-size: 23px;
+    padding: 7px;
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.button-space{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+};
+
+.booking-button{
+    padding: 8px;
+    background-color: #8bb6b9;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 10px;
+}
+
+
+/*----Celulares chicos-----*/
+
+/*
+@media(width-min:460px){
+
+}
+*/
+
+/*------Tablets------*/
+
+/*
+@media(width-min: 768px){
+    .main-top{
+        margin-top: 30px;
+    }
+    .booking-title{
+        flex-grow: 0.7;
+    }
+    .booking{
+        margin-top: 40px;
+    }
+    .booking-text{
+        font-size: 27px;
+    }
+    .booking-price{
+        font-size: 27px;
+        flex-grow: 0.6;
+    }
+    .trash-button{
+        font-size: 27px;
+    }
+    .booking-button{
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+*/
+
+/*---------Laptop------*/
+/*
+@media(width-min: 1200px){
+
+}
+*/
