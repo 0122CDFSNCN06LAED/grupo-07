@@ -14,8 +14,6 @@ module.exports = {
     res.render("product-create-form");
   },
   store: (req, res) => {
-    const data = req.body;
-    res.send(console.log(data));
     const newId =
       PRODUCTS.reduce((acc, p) => {
         return p.id > acc ? p.id : acc;
