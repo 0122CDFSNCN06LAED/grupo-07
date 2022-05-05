@@ -1,17 +1,20 @@
 footer {
+  width: 100vw;
   background-color: black;
-  margin: auto;
+  /* margin: auto; */
   margin-top: 20px;
   display: block;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding-bottom:10px;
+  padding-top:10px;
 }
 
 .footer_left,
 .footer_right,
 .footer_center,
 .copyright {
-  padding: 20px;
+  /* padding: 14px; */
   color: white;
   text-align: center;
 }
@@ -27,6 +30,10 @@ footer {
 .social_media,
 .offices {
   margin-top: 10px;
+}
+
+.copyright{
+  margin:0px;
 }
 
 footer h2 {

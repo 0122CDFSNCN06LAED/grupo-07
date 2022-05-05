@@ -6,7 +6,7 @@
   <body>
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
-      <h3 class="h3-description"> > <%=product.brand%> <%=product.model%></h3>
+      <h3 class=""> > <%=product.brand%> <%=product.model%></h3>
       <div class="cube">
         <div
           id="carouselExampleCaptions"
@@ -63,15 +63,15 @@
         </div>
       </div>
   <div class="margin-top centered">
-    <h2>Precio: <%=product.price%></h2>
+    <h2>Precio: $<%=product.price%></h2>
   </div>
   <div class="centered">
     <h3 class="h3-discount">Bonificación <%=product.discount%>% compra online</h3>
   </div>
   <div class="centered">
-    <h1 class="h1-final-price">¡Precio final online <%=product.price*(1-product.discount/100)%>! </h1>
+    <h1 class="h1-final-price">¡Precio final online $<%=Math.round(product.price*(1-product.discount/100),0)%>! </h1>
   </div>
-  <div class="margin-top centered">
+  <div class="buttons2 margin-top centered">
     <button class="button-send" type="submit">Realizar consulta</button>
     <button class="button-send" type="submit">¡Comenzar compra!</button>
   </div>
@@ -91,8 +91,20 @@
   <p class="h5-text">Seguridad: <%=product.airbags%></p>
   <p class="h5-text">Entretenimiento: Radio - FM/AM - Mp3 - Bluetooth</p>
   </div>
+  
+  <div class="margin-top centered buttons2">
+
+    <form action="/products/edit/<%=product.id%>" method="" >
+      <button type="submit" class="button-send delete">EDITAR PRODUCTO</button>
+    </form>
+
+    <form action="/products/<%=product.id%>?_method=DELETE" method="POST" >
+      <button type="submit" class="button-send delete">ELIMINAR</button>
+    </form>
+  </div>
+
+
     </main>
     <footer><%- include("./partials/footer.ejs")%></footer>
   </body>
-  <p class="copyright">Copyright © 2020-2022 X S.R.L</p>
 </html>

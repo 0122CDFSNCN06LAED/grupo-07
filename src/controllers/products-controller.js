@@ -26,7 +26,7 @@ module.exports = {
     PRODUCTS.push(product);
     const jsonTxt = JSON.stringify(PRODUCTS, null, 2);
     fs.writeFileSync(productsFilePath, jsonTxt, "utf-8");
-    res.redirect("/products");
+    res.redirect("/products/description/"+newId);
   },
   edit: (req, res) => {
     const id = req.params.id
@@ -40,10 +40,9 @@ module.exports = {
 			...req.body,
       id
 		})
-    console.log(req.body)
 		const jsonTxt = JSON.stringify(PRODUCTS,null,2)
 		fs.writeFileSync(productsFilePath, jsonTxt,'utf-8')
-		res.redirect('/products')
+		res.redirect('/products/description/'+id)
   },
   description: (req, res) => {
     const id = req.params.id;

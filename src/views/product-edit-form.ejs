@@ -78,9 +78,19 @@
             class="input"
           />
           </div> -->
+
+          <div class="fuel-type">
+            <h4 class="item-title">Descripción</h4>
+            <input class="input" type="text" name="description" id="description" placeholder="Ej: no se" />
+          </div>
+
           <div class="price-product">
             <h4 class="item-title">Precio</h4>
             <input class="input" type="number" name="price" id="price" value="<%= product.price %>" />
+          </div>
+          <div class="discount-product">
+            <h4 class="item-title">Descuento</h4>
+            <input class="input" type="number" name="discount" id="discount" />
           </div>
           <div class="buttons">
             <button class="button-send" type="submit">Actualizar</button>
@@ -89,5 +99,4 @@
     </main>
     <footer><%- include("./partials/footer.ejs")%></footer>
   </body>
-  <p class="copyright">Copyright © 2020-2022 X S.R.L</p>
 </html>

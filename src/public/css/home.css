@@ -5,6 +5,10 @@
   margin-bottom: 20px;
 }
 
+.search {
+  width: 100vw;
+}
+
 .hamburguer-buttom {
   background-color: #8bb6b9;
   border-radius: 8px;
@@ -45,6 +49,7 @@
   margin-bottom: 16px;
   margin-right: 16px;
   margin-left: 16px;
+  margin-top: 20px;
 }
 
 .description-product {
@@ -95,16 +100,19 @@
 }
 
 .h3-description {
+  justify-content: center;
   margin-left: 10%;
   text-shadow: #06314a;
 }
 
 .h3-description-title {
+  font-size: 18px;
   margin-left: 10%;
   text-shadow: #06314a;
 }
 
 .h4-text-bold {
+  font-size: 15px;
   font-weight: bold;
   margin-left: 15%;
   text-shadow: #06314a;
@@ -113,6 +121,7 @@
 .h5-text {
   margin-left: 20%;
   text-shadow: #06314a;
+  font-size: 13px;
 }
 
 .margin-top {
@@ -131,6 +140,20 @@
 .h1-final-price {
   font-weight: bold;
   color: rgb(4, 7, 150);
+}
+
+.banner {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.cube {
+  width: 100vw;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0px 0px 50px rgb(100, 100, 100);
+  margin-left: 9%;
+  margin-right: 9%;
 }
 
 @media (min-width: 460px) {
@@ -165,6 +188,7 @@
     color: black;
     display: block;
     width: 33%;
+    font-size: calc(1.1rem + 1.5vw);
     text-align: center;
     margin-top: 16px;
     margin-left: 8px;
@@ -192,12 +216,6 @@
 
   .img-product {
     text-align: center;
-  }
-
-  .banner {
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
 }
 
@@ -228,7 +246,7 @@
     display: block;
     text-align: right;
     font-weight: 600;
-    font-size: 40px;
+    font-size: 30px;
     width: 50%;
     margin-top: 24px;
     padding: 0 20px;
@@ -248,7 +266,8 @@
 
   .items-navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    row-gap: 30px;
     flex-wrap: wrap;
     font-weight: 500;
     margin-bottom: 0;
@@ -274,14 +293,6 @@
 
   .size-img {
     width: 300px;
-  }
-
-  .cube {
-    margin-top: 40px;
-    box-shadow: 0px 0px 50px rgb(100, 100, 100);
-    margin-left: 9%;
-    margin-right: 9%;
-    width: 80%;
   }
 }
 
@@ -312,5 +323,9 @@
 
   .size-img {
     width: 270px;
+  }
+
+  .title-header {
+    font-size: 40px;
   }
 }

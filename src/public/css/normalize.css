@@ -1,3 +1,7 @@
+html{
+  min-width: 330px;
+}
+
 body {
   font-size: 12px;
 }
