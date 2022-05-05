@@ -7,7 +7,7 @@
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
       <h2 class="title-form">Creá un producto</h2>     
-      <form action="">
+      <form action="/products" method="POST">
         <div class="register_container">       
           <div class="name-product">
             <h4 class="item-title">Indica marca</h4>
@@ -60,11 +60,11 @@
             </div>
           </div>
           <div class="trasmition">
-            <h4 class="item-title">Trasmición</h4>
+            <h4 class="item-title">Trasmisión</h4>
             <input class="input" type="text" name="transmission" id="transmission" placeholder="Ej: Manual"/></div>
           <div class="fuel-type">
             <h4 class="item-title">Tipo de motor</h4>
-            <input class="input" type="text" name="engine_type" id=engine_type" placeholder="Ej: Nafta" />
+            <input class="input" type="text" name="engine_type" id="engine_type" placeholder="Ej: Nafta" />
           </div>
           <!--<div>
             <h4 class="item-title">Carga una imagen</h4>

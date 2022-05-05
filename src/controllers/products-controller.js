@@ -20,9 +20,8 @@ module.exports = {
       }, 0) + 1;
     const product = {
       ...req.body,
-      id: newId,
+      id: newId
       // image: req.file.filename
-      image: "carousel-1.png",
     };
     PRODUCTS.push(product);
     const jsonTxt = JSON.stringify(PRODUCTS, null, 2);
