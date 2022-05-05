@@ -6,7 +6,7 @@
   <body>
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
-      <h3 class="h3-description"> > Ford Ka 2021 HLS Strawberry Red</h3>
+      <h3 class="h3-description"> > <%=product.brand%> <%=product.model%></h3>
       <div class="cube">
         <div
           id="carouselExampleCaptions"
@@ -63,13 +63,13 @@
         </div>
       </div>
   <div class="margin-top centered">
-    <h2>Precio: 2.770.000</h2>
+    <h2>Precio: <%=product.price%></h2>
   </div>
   <div class="centered">
-    <h3 class="h3-discount">Bonificación 5% compra online</h3>
+    <h3 class="h3-discount">Bonificación <%=product.discount%>% compra online</h3>
   </div>
   <div class="centered">
-    <h1 class="h1-final-price">¡Precio final online 2.631.500! </h1>
+    <h1 class="h1-final-price">¡Precio final online <%=product.price*(1-product.discount/100)%>! </h1>
   </div>
   <div class="margin-top centered">
     <button class="button-send" type="submit">Realizar consulta</button>
@@ -78,17 +78,17 @@
   <div>
   <h3 class="h3-description-title margin-top">Características</h3>
   <p class="h4-text-bold"> > General</p>
-  <p class="h5-text">Año: 2020</p>
+  <p class="h5-text">Año: <%=product.model_year%></p>
   <p class="h5-text">Procedencia: Brasil</p>
-  <p class="h5-text">Tipo de Combustible: Nafta</p>
-  <p class="h5-text">Transmisión: Manual</p>
-  <p class="h5-text">Ubicación: Agencia Mendoza</p>
-  <p class="h5-text">Stock ID: 182896</p>
+  <p class="h5-text">Tipo de Combustible: <%=product.engine_type%></p>
+  <p class="h5-text">Transmisión: <%=product.transmission%></p>
+  <p class="h5-text">Ubicación: <%=product.seller%></p>
+  <p class="h5-text">Stock ID: <%=product.id%></p>
 
   <p class="h4-text-bold"> > Exterior</p>
 
-  <p class="h5-text">Número de Puertas: 4</p>
-  <p class="h5-text">Seguridad: ABS</p>
+  <p class="h5-text">Número de Puertas: <%=product.doors%></p>
+  <p class="h5-text">Seguridad: <%=product.airbags%></p>
   <p class="h5-text">Entretenimiento: Radio - FM/AM - Mp3 - Bluetooth</p>
   </div>
     </main>

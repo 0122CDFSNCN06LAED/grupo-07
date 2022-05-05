@@ -6,57 +6,70 @@
   <body>
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
-      <h2 class="title-form">Edita un producto</h2>     
-      <form action="">
+      <h2 class="title-form">Edita un producto: <i><%=product.brand%></i></h2>     
+      <form action="/products/<%= product.id %>?_method=PUT" method="POST">
         <div class="register_container">       
           <div class="name-product">
-            <h4 class="item-title">Indica marca y modelo de tu vehículo </h4>
+            <h4 class="item-title">Indica marca </h4>
             <input
               class="input"
               type="text"
-              name="productname"
-              id="productname"
+              name="brand"
+              id="brand"
               placeholder="Ej: Ford Fiesta"
+              value="<%= product.brand %>"
+            />
+          </div>
+          <div class="name-product">
+            <h4 class="item-title">Indica modelo</h4>
+            <input
+              class="input"
+              type="text"
+              name="model"
+              id="model"
+              placeholder="Ej: Fiesta"
+              value="<%= product.model %>"
             />
           </div>
           <div class="version-product">
-            <h4 class="item-title">¿Cúal es la version? </h4>
+            <h4 class="item-title"> Año de fabricacion </h4>
             <input
               class="input"
               type="text"
-              name="productname"
-              id="productname"
-              placeholder="Ej: 1.6 SE Plus"
+              name="model_year"
+              id="model_year"
+              placeholder="Ej: 2000"
+              value="<%= product.model_year%>"
             />
           </div>
-          <div class="category-product">
+          <!-- <div class="category-product">
             <h4 class="item-title">¿A qué categoría pertenece?</h4>
             <select class="input" name="category" id="category">
               <option value="">Elegí una opcion</option>
               <option value="new">Nuevo</option>
               <option value="used">Usado</option>
             </select>
-          </div>
+          </div> -->
           <div class="color-product">
             <h4 class="item-title">Color</h4>
-            <input class="input" type="text" name="color" id="color" placeholder="Ej: Rojo"/>
+            <input class="input" type="text" name="color" id="color" placeholder="Ej: Rojo" value="<%= product.color %>"/>
           </div>
           <div class="number-doors" >
             <h4 class="item-title">Numero de puertas</h4>
-            <input class="input" type="number" name="doors" id="doors" placeholder="Ej: 5"/>
+            <input class="input" type="number" name="doors" id="doors" placeholder="Ej: 5" value="<%= product.doors %>"/>
             <div class="container-message-alert">
               <p class="icon-message-alert"><i class="fa-solid fa-triangle-exclamation" class=></i></p>
               <p class="message-alert">Solo números</p>
             </div>
           </div>
           <div class="trasmition">
-            <h4 class="item-title">Trasmición</h4>
-            <input class="input" type="text" name="trasmition" id="trasmition" placeholder="Ej: Manual"/></div>
-          <div class="fuel-type">
-            <h4 class="item-title">Tipo de combustible</h4>
-            <input class="input" type="text" name="fuel-type" id="fuel-type" placeholder="Ej: Nafta" />
-          </div>
-          <div>
+            <h4 class="item-title">Trasmisión</h4>
+            <input class="input" type="text" name="transmission" id="transmission" placeholder="Ej: Manual" value="<%= product.transmission %>"/></div>
+            <div class="fuel-type">
+              <h4 class="item-title">Tipo de motor</h4>
+              <input class="input" type="text" name="engine_type" id="engine_type" placeholder="Ej: Nafta" value="<%= product.engine_type %>"/>
+            </div>
+          <!-- <div>
             <h4 class="item-title">Carga una imagen</h4>
             <input
             type="file"
@@ -64,10 +77,10 @@
             id="productPic"
             class="input"
           />
-          </div>
+          </div> -->
           <div class="price-product">
             <h4 class="item-title">Precio</h4>
-            <input class="input" type="number" name="price" id="price" />
+            <input class="input" type="number" name="price" id="price" value="<%= product.price %>" />
           </div>
           <div class="buttons">
             <button class="button-send" type="submit">Actualizar</button>

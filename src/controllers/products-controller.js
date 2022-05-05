@@ -29,9 +29,32 @@ module.exports = {
     res.redirect("/products");
   },
   edit: (req, res) => {
-    res.render("product-edit-form");
+    const id = req.params.id
+		const product = PRODUCTS.find(product => product.id == id);
+		res.render('product-edit-form',{product})
+  },
+  update: (req,res)=>{
+    const id = req.params.id
+		const index = PRODUCTS.findIndex(product => product.id == id);
+		Object.assign(PRODUCTS[index],{
+			...req.body,
+      id
+		})
+    console.log(req.body)
+		const jsonTxt = JSON.stringify(PRODUCTS,null,2)
+		fs.writeFileSync(productsFilePath, jsonTxt,'utf-8')
+		res.redirect('/products')
   },
   description: (req, res) => {
-    res.render("description");
+    const id = req.params.id;
+		const product = PRODUCTS.find(product => product.id == id);
+		res.render('description',{product})
   },
+  destroy: (req,res)=>{
+    const id = req.params.id
+		PRODUCTS.splice(PRODUCTS.findIndex(product => product.id == id),1)
+		const jsonTxt = JSON.stringify(PRODUCTS,null,2)
+		fs.writeFileSync(productsFilePath, jsonTxt,'utf-8')
+		res.redirect('/products')
+  }
 };
