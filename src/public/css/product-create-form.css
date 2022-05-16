@@ -19,6 +19,7 @@ main {
   width: 80vw;
   max-width: 1000px;
   min-width: 250px;
+  padding-top: 30px;
 }
 
 .register_container .input {
@@ -28,7 +29,7 @@ main {
   border: none;
   max-width: 800px;
   min-width: 200px;
-  padding-left: 3px;
+  padding-left: 10px;
 }
 
 .title-form {

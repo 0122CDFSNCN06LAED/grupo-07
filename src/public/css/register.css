@@ -27,6 +27,7 @@ main {
   height: 25px;
   max-width: 800px;
   min-width: 200px;
+  padding-left: 10px;
 }
 
 .cuenta_existente {

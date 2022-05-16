@@ -1,0 +1,8 @@
+.user-img{
+    width:30vw;
+}
+
+.buttons{
+    display:flex;
+    justify-content:space-around;  
+}

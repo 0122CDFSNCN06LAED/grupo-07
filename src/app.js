@@ -3,6 +3,7 @@ const path = require("path");
 const app = express();
 const mainRouter = require("./routes/main-routes");
 const productsRouter = require("./routes/products-router");
+const usersRouter = require("./routes/users-router");
 const methodOverride =  require('method-override');
 
 app.set("view engine", "ejs");
@@ -20,4 +21,6 @@ app.listen(PORT, () => {
 });
 
 app.get("/", mainRouter);
+
 app.use("/products", productsRouter);
+app.use("/users", usersRouter);

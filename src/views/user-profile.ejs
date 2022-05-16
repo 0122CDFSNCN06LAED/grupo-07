@@ -6,12 +6,10 @@
   <body>
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
-      <h2>Crea tu cuenta</h2>
+      <h2>Perfil de usuario</h2>
       <div class="register_container">
-
-        <form action="/users" method="POST">
-
-        
+        <img src="/img/user-img/user.jpeg" alt="En ruedas" class="user-img" />
+        <form action="/users/<%= user.id %>?_method=PUT" method="POST">
         <div class="register_nombre">
           <h4>Nombre</h4>
           <input
@@ -19,7 +17,7 @@
             type="text"
             name="first_name"
             id="first_name"
-            placeholder=""
+            value = "<%= user.first_name %> "
           />
         </div>
 
@@ -30,7 +28,7 @@
             type="text"
             name="last_name"
             id="last_name"
-            placeholder=""
+            value = "<%= user.last_name %> "
           />
         </div>
 
@@ -41,7 +39,7 @@
             type="text"
             name="username"
             id="username"
-            placeholder=""
+            value = "<%= user.username %> "
           />
         </div>
 
@@ -52,7 +50,7 @@
             type="email"
             name="email"
             id="email"
-            placeholder=""
+            value = "<%= user.email %> "
           />
         </div>
 
@@ -63,18 +61,7 @@
             type="password"
             name="password"
             id="password"
-            placeholder="Como mínimo 6 caracteres"
-          />
-        </div>
-
-        <div class="register_confirm_password">
-          <h4>Confirmar contraseña</h4>
-          <input
-            class="input"
-            type="password"
-            name="confirm_password"
-            id="confirm_password"
-            placeholder=""
+            value = "<%= user.password %> "
           />
         </div>
 
@@ -85,27 +72,21 @@
             type="date"
             name="birthdate"
             id="birthdate"
-            placeholder=""
+            value = "<%= user.birth_date %> "
           />
         </div>
 
         <div class="buttons">
-          <button class="button-send" type="submit">Crear cuenta</button>
-          <button class="button-reset" type="reset">Reestablecer</button>
+          <button class="button-send" type="submit">Modificar datos</button>
+          <button class="button-reset" type="reset">Descartar cambios</button>
         </div>
+      
       </form>
-        <div class="privacidad">
-          <p>
-            Al crear una cuenta, aceptas las
-            <a href="#">Condiciones de Uso</a> y el
-            <a href="#">Aviso de Privacidad</a>.
-          </p>
-        </div>
-
-        <div class="cuenta_existente">
-          <p>¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
-        </div>
+      <form action="/users/<%=user.id%>?_method=DELETE" method="POST" >
+        <button type="submit" class="button-send delete">Eliminar usuario</button>
+      </form>
       </div>
+
     </main>
     <footer><%- include("./partials/footer.ejs")%></footer>
   </body>

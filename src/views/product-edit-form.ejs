@@ -6,7 +6,7 @@
   <body>
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
-      <h2 class="title-form">Edita un producto: <i><%=product.brand%></i></h2>     
+      <h2 class="title-form">Editando: <i><%=product.brand%></i></h2>     
       <form action="/products/<%= product.id %>?_method=PUT" method="POST">
         <div class="register_container">       
           <div class="name-product">
