@@ -9,9 +9,14 @@
       <h2>Crea tu cuenta</h2>
       <div class="register_container">
 
-        <form action="/users" method="POST">
+        <% if (locals.errors) { 
+          errors.forEach(error => { %>
+            <p class="feedback is-danger"> <%= error.msg %> </p>
+        <% })}%>
+       
 
-        
+        //  al poner enctype se arruina el old.first_name y etc
+        <form action="/users" method="POST" enctype="multipart/form-data">
         <div class="register_nombre">
           <h4>Nombre</h4>
           <input
@@ -20,6 +25,7 @@
             name="first_name"
             id="first_name"
             placeholder=""
+            value="<%= locals.old && old.first_name ? old.first_name : '' %>"
           />
         </div>
 
@@ -31,6 +37,7 @@
             name="last_name"
             id="last_name"
             placeholder=""
+            value="<%= locals.old && old.last_name ? old.last_name : '' %>"
           />
         </div>
 
@@ -42,6 +49,7 @@
             name="username"
             id="username"
             placeholder=""
+            value="<%= locals.old && old.username ? old.username : '' %>"
           />
         </div>
 
@@ -53,6 +61,7 @@
             name="email"
             id="email"
             placeholder=""
+            value="<%= locals.old && old.email ? old.email : '' %>"
           />
         </div>
 
@@ -64,6 +73,7 @@
             name="password"
             id="password"
             placeholder="Como mínimo 6 caracteres"
+            value="<%= locals.old && old.password ? old.password : '' %>"
           />
         </div>
 
@@ -75,6 +85,7 @@
             name="confirm_password"
             id="confirm_password"
             placeholder=""
+            value="<%= locals.old && old.confirm_password ? old.confirm_password : '' %>"
           />
         </div>
 
@@ -86,8 +97,21 @@
             name="birthdate"
             id="birthdate"
             placeholder=""
+            value="<%= locals.old && old.birthdate ? old.birthdate : '' %>"
           />
         </div>
+
+        <div class="register_profile_pic">
+          <h4>Avatar</h4>
+          <input
+            class="input"
+            type="file"
+            name="profile_pic"
+            id="profile_pic"
+            placeholder=""
+            // value="<%= locals.old && old.profile_pic ? old.profile_pic : '' %>"
+            />
+          </div>
 
         <div class="buttons">
           <button class="button-send" type="submit">Crear cuenta</button>

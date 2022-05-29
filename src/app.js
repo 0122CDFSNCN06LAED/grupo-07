@@ -13,7 +13,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 app.use(mainRouter);
+app.use("/products", productsRouter);
+app.use("/users", usersRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => {
@@ -21,6 +24,3 @@ app.listen(PORT, () => {
 });
 
 app.get("/", mainRouter);
-
-app.use("/products", productsRouter);
-app.use("/users", usersRouter);

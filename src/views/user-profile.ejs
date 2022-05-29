@@ -8,7 +8,7 @@
     <main>
       <h2>Perfil de usuario</h2>
       <div class="register_container">
-        <img src="/img/user-img/user.jpeg" alt="En ruedas" class="user-img" />
+        <img src="/img/user-img/<%= user.profile_pic %>" alt="En ruedas" class="user-img" />
         <form action="/users/<%= user.id %>?_method=PUT" method="POST">
         <div class="register_nombre">
           <h4>Nombre</h4>
