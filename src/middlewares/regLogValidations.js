@@ -1,10 +1,9 @@
-const {body} = require('express-validator')
+const {check,body} = require('express-validator')
 
 const validaciones = (control) => {
     if(control == 'login'){
         return [
-        body('login_email').notEmpty().withMessage('Debe ingresar un nombre válido la concha de tu madre'),
-        body('login_password').notEmpty().withMessage('Debe ingresar un apellido válido'),
+        body('password').isLength({min: 6}).withMessage('Debe ingresar una contraseña válida de más de 6 caracteres'),
         body('email').isEmail().withMessage('Debe ingresar un email válido')]
     }
     if(control == 'register'){
@@ -13,8 +12,8 @@ const validaciones = (control) => {
         body('last_name').notEmpty().withMessage('Debe ingresar un apellido válido'),
         body('username').notEmpty().withMessage('Debe ingresar un usuario válido'),
         body('email').isEmail().withMessage('Debe ingresar un email válido'),
-        body('password').notEmpty().withMessage('Debe ingresar una contraseña válida'),
-        body('confirm_password').notEmpty().withMessage('Debe ingresar una contraseña válida'),
+        body('password').isLength({min: 6}).withMessage('Debe ingresar una contraseña válida de más de 6 caracteres'),
+        body('confirm_password').isLength({min: 6}).withMessage('Debe ingresar una contraseña válida de más de 6 caracteres'),
         body('birthdate').notEmpty().withMessage('Debe ingresar una fecha válido')]
        }
 }

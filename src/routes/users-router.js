@@ -19,6 +19,10 @@ const upload = multer({storage: storage})
 
 // Loguear un usuario
 router.get("/login", userController.login);
+router.post('/login',regLogMiddelware('login'),userController.processLogin)
+
+// Desloguear un usuario
+router.get('/logout', userController.logout)
 
 /*** GET AN USER ***/
 router.get("/user-profile" ,userController.userProfile);
@@ -31,7 +35,7 @@ router.delete('/:id', userController.destroy);
 
 /*** CREATE AN USER ***/
 router.get("/register", userController.register);
-router.post('/',upload.single('profile_pic'),regLogMiddelware('register'),userController.store);
+router.post('/register',upload.single('profile_pic'),regLogMiddelware('register'),userController.store);
 
 
 

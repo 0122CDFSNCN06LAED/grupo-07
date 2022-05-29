@@ -13,13 +13,20 @@
   <ul class="items-navbar">
     <li><a href="/products">Comprá tu auto </a></li>
     <li><a href="/products/create">Vende tu auto</a></li>
-    <li>
-      <a href="/users/login">Ingresá</a>
-      <i class="fa-solid fa-right-to-bracket"></i>
-    </li>
-    <li>
-      <a href="/users/user-profile">Perfil de usuario</a>
-      <i class="fa-solid fa-user"></i>
-    </li>
+    <% if (log_flag) { %>
+      <li>
+        <a href="/users/user-profile">Perfil de usuario</a>
+        <i class="fa-solid fa-user"></i>
+      </li>
+      <li>
+        <a href="/users/logout">Desloguear</a>
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </li>
+    <% } else{%>
+      <li>
+        <a href="/users/login">Ingresá</a>
+        <i class="fa-solid fa-right-to-bracket"></i>
+      </li>
+    <%} %>
   </ul>
 </div>

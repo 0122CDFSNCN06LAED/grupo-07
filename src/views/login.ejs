@@ -7,40 +7,51 @@
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
       <h2>Iniciar sesión</h2>
-      <div class="register_container">
-        <div class="register_email">
-          <h4>Correo electrónico</h4>
-          <input
+
+      
+      <% if (locals.errors) { 
+        errors.forEach(error => { %>
+          <p class="feedback is-danger"> <%= error.msg %> </p>
+      <% })}%>
+
+
+      <form action="/users/login" method="POST">
+        <div class="register_container">
+          <div class="register_email">
+            <h4>Correo electrónico</h4>
+            <input
             class="input"
             type="email"
             name="email"
             id="login_email"
             placeholder=""
-          />
-        </div>
-        <div class="register_password">
-          <h4>Contraseña</h4>
-          <input
+            value="<%= locals.old && old.email ? old.email : '' %>"
+            />
+          </div>
+          <div class="register_password">
+            <h4>Contraseña</h4>
+            <input
             class="input"
             type="password"
             name="password"
-            id="login_password"
+            id="password"
             placeholder=""
-          />
-        </div>
+            />
+          </div>
         <div class="recordar">
           <input
             type="checkbox"
             name="recordar"
             id="recordar"
             value="recordar"
-          />
-          <label for="recordar">Recordarme</label>
-        </div>
+            />
+            <label for="recordar">Recordarme</label>
+          </div>
         <div class="buttons">
           <button class="button-send" type="submit">Enviar</button>
           <button class="button-reset" type="reset">Reestablecer</button>
         </div>
+      </form>
         <div class="privacidad">
           <p>
             Al continuar aceptas las

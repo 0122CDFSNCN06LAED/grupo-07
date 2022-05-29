@@ -10,12 +10,9 @@ module.exports = {
   home: (req, res) => {
     res.render("index", {
       products: PRODUCTS,
+      log_flag: req.session.usuarioLogueado ? true : false
     });
   },
   carrito: (req, res) => {
-  },
-  description: (req, res) => {
-    res.render("login");
-  },
-  
+  }  
 };

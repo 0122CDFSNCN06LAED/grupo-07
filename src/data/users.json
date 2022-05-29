@@ -12,7 +12,7 @@
     "email": "jwoodruff0@hc360.com",
     "profile_img": "NULL",
     "username": "jwoodruff0",
-    "password": "wWlns2T   ",
+    "password": "$2a$10$Hmx9yp8iis49rvt6GTIWHuHZ.04fucinyujevvP9R5iK/OKhPP5Sy",
     "ip_address": "105.62.186.132",
     "birthdate": ""
   },
@@ -171,13 +171,25 @@
     "id": 11
   },
   {
-    "first_name": "Canela",
-    "last_name": "Canelita",
-    "username": "canelina-canela",
-    "email": "canela@gmail.com",
-    "password": "123456",
-    "confirm_password": "123456",
-    "birthdate": "2022-05-30",
-    "id": 12
+    "first_name": "Roque",
+    "last_name": "Roquino",
+    "username": "turoquefort23",
+    "email": "roquefort@gmail.com",
+    "password": "$2a$10$u6BgqQPQ4L75p/PnU9t3MO4SPFLIO/JQl0u/St85yuaJ.GrngU8Ni",
+    "confirm_password": "roquino",
+    "birthdate": "2022-05-12",
+    "id": 12,
+    "profile_pic": "user-1653807046518.jpg"
+  },
+  {
+    "first_name": "Gordillo",
+    "last_name": "Carlos",
+    "username": "123123123",
+    "email": "gordillocarlosn@gmail.com",
+    "password": "$2a$10$/Av3hWJiE8bRA6QomYQ3l.uwAjfbdprlYqpHljcdQFgdBqijKePge",
+    "confirm_password": "38463551",
+    "birthdate": "2022-05-12",
+    "id": 13,
+    "profile_pic": "user-1653810948917.jpg"
   }
 ]

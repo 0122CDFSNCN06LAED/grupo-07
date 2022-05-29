@@ -7,16 +7,17 @@
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
       <h2>Crea tu cuenta</h2>
-      <div class="register_container">
+
 
         <% if (locals.errors) { 
           errors.forEach(error => { %>
-            <p class="feedback is-danger"> <%= error.msg %> </p>
+            <p class="feedback is-danger"> <%= error.msg%> </p>
         <% })}%>
-       
 
-        //  al poner enctype se arruina el old.first_name y etc
-        <form action="/users" method="POST" enctype="multipart/form-data">
+        
+      <div class="register_container">
+
+        <form action="/users/register" method="POST" enctype="multipart/form-data">
         <div class="register_nombre">
           <h4>Nombre</h4>
           <input

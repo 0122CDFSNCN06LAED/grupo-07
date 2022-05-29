@@ -8,10 +8,13 @@ module.exports = {
   index: (req, res) => {
     res.render("products", {
       products: PRODUCTS,
+      log_flag: req.session.usuarioLogueado ? true : false
     });
   },
   create: (req, res) => {
-    res.render("product-create-form");
+    res.render("product-create-form",{
+      log_flag: req.session.usuarioLogueado ? true : false
+    });
   },
   store: (req, res) => {
     const newId =
@@ -31,7 +34,7 @@ module.exports = {
   edit: (req, res) => {
     const id = req.params.id
 		const product = PRODUCTS.find(product => product.id == id);
-		res.render('product-edit-form',{product})
+		res.render('product-edit-form',{product: product, log_flag: req.session ? true : false})
   },
   update: (req,res)=>{
     const id = req.params.id
@@ -47,7 +50,7 @@ module.exports = {
   description: (req, res) => {
     const id = req.params.id;
 		const product = PRODUCTS.find(product => product.id == id);
-		res.render('description',{product})
+		res.render('description',{product: product, log_flag: req.session ? true : false})
   },
   destroy: (req,res)=>{
     const id = req.params.id
