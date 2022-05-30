@@ -13,7 +13,7 @@
   <ul class="items-navbar">
     <li><a href="/products">Comprá tu auto </a></li>
     <li><a href="/products/create">Vende tu auto</a></li>
-    <% if (log_flag) { %>
+    <% if (locals.isLogged) { %>
       <li>
         <a href="/users/user-profile">Perfil de usuario</a>
         <i class="fa-solid fa-user"></i>

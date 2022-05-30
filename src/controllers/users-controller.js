@@ -11,64 +11,58 @@ const { fileURLToPath } = require("url");
 // Hashear contraseña
 const bcrypt = require("bcryptjs");
 
-// Eventualmente esto se guardará en una cookie cuando el usuario
-// se loguee.
-
 module.exports = {
   userProfile: (req, res) => {
     const loguedUser = req.session.usuarioLogueado
     if(loguedUser){
-      res.render("user-profile", { user: loguedUser,log_flag: req.session.usuarioLogueado ? true : false });
+      res.render("user-profile", { user: loguedUser});
     }else{
-      res.render('login',{log_flag: req.session.usuarioLogueado ? true : false})
+      res.render('login')
     }
   },
   register: (req, res) => {
-    res.render("register",{log_flag: req.session.usuarioLogueado ? true : false});
+    res.render("register");
   },
   login: (req, res) => {
-    res.render("login",{log_flag: req.session.usuarioLogueado ? true : false});
+    res.render("login");
   },
   processLogin: (req, res) => {
     let errors = validationResult(req);
-
     if (errors.isEmpty()) {
       let userToLogin = users.find((user) => user.email == req.body.email);
 
       if(userToLogin){
-        if(bcrypt.compareSync(req.body.password,userToLogin.password)){
+        if(bcrypt.compareSync(req.body.password,userToLogin.hashed_password)){
           req.session.usuarioLogueado = userToLogin;
-          return res.render("user-profile", { user: userToLogin,log_flag: req.session.usuarioLogueado ? true : false })
+          if(req.body.rememberUser){
+            res.cookie('userEmail',req.body.email,{maxAge: (1000 * 40) * 1})
+          }
+          return res.redirect('/users/user-profile')
         }else{
           return res.render('login',{
             errors: [{
                 msg: 'Credenciales inválidas'
             }],
-            old: req.body,
-          })
+            old: req.body})
         }
       }else{
         return res.render('login',{
           errors: [{
               msg: 'Credenciales inválidas'
           }],
-          old: req.body,
-          log_flag: req.session.usuarioLogueado ? true : false 
-        })
+          old: req.body})
       }
     } else {
       res.render("login", {
         errors: errors.array(),
-        old: req.body,
-        log_flag: req.session.usuarioLogueado ? true : false 
-      });
+        old: req.body});
     }
     
   },
   logout: (req,res) =>{
     req.session.usuarioLogueado = undefined
-    console.log(req.session.usuarioLogueado);
-    res.render("login",{log_flag: req.session.usuarioLogueado ? true : false});
+    res.clearCookie('userEmail')
+    res.redirect("/users/login");
   },
   update: (req, res) => {
     const id = req.params.id;
@@ -79,7 +73,9 @@ module.exports = {
     });
     const jsonTxt = JSON.stringify(users, null, 2);
     fs.writeFileSync(usersFilePath, jsonTxt, "utf-8");
-    res.redirect("/users/user-profile");
+    // res.redirect("/users/user-profile");
+    req.session.usuarioLogueado = users[index]
+    res.render("user-profile", { user: req.session.usuarioLogueado})
   },
   destroy: (req, res) => {
     const id = req.params.id;
@@ -106,30 +102,25 @@ module.exports = {
           errors: [{
               msg: 'Este email ya está registrado'
           }],
-          old: req.body,
-          log_flag: req.session.usuarioLogueado ? true : false
-        });
+          old: req.body});
       }
 
       const user = {
         ...req.body,
         id: Number(newId),
         profile_pic: req.file ? req.file.filename : "unknown.jpg",
-        password: bcrypt.hashSync(req.body.password, 10),
+        hashed_password: bcrypt.hashSync(req.body.password, 10),
       };
 
       users.push(user);
 
       const jsonTxt = JSON.stringify(users, null, 2);
       fs.writeFileSync(usersFilePath, jsonTxt, "utf-8");
-      req.session.usuarioLogueado = user;
-      res.render("user-profile", { user: user,log_flag: req.session.usuarioLogueado ? true : false });
+      res.render("login");
     } else {
       res.render("register", {
         errors: errors.array(),
-        old: req.body,
-        log_flag: req.session.usuarioLogueado ? true : false
-      });
+        old: req.body});
     }
   },
 };

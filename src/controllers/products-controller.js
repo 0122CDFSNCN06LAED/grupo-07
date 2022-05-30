@@ -7,14 +7,10 @@ const PRODUCTS = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 module.exports = {
   index: (req, res) => {
     res.render("products", {
-      products: PRODUCTS,
-      log_flag: req.session.usuarioLogueado ? true : false
-    });
+      products: PRODUCTS});
   },
   create: (req, res) => {
-    res.render("product-create-form",{
-      log_flag: req.session.usuarioLogueado ? true : false
-    });
+    res.render("product-create-form");
   },
   store: (req, res) => {
     const newId =
@@ -34,7 +30,7 @@ module.exports = {
   edit: (req, res) => {
     const id = req.params.id
 		const product = PRODUCTS.find(product => product.id == id);
-		res.render('product-edit-form',{product: product, log_flag: req.session ? true : false})
+		res.render('product-edit-form',{product: product})
   },
   update: (req,res)=>{
     const id = req.params.id
@@ -50,7 +46,7 @@ module.exports = {
   description: (req, res) => {
     const id = req.params.id;
 		const product = PRODUCTS.find(product => product.id == id);
-		res.render('description',{product: product, log_flag: req.session ? true : false})
+		res.render('description',{product: product})
   },
   destroy: (req,res)=>{
     const id = req.params.id

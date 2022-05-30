@@ -159,37 +159,5 @@
     "username": "hmatuskiewicz9",
     "password": "NaSAWo",
     "ip_address": "131.24.169.132"
-  },
-  {
-    "first_name": "Roquefort",
-    "last_name": "Roquito",
-    "username": "roquefordico",
-    "email": "roquefordico@gmail.com",
-    "password": "123456",
-    "confirm_password": "123456",
-    "birthdate": "2022-05-25",
-    "id": 11
-  },
-  {
-    "first_name": "Roque",
-    "last_name": "Roquino",
-    "username": "turoquefort23",
-    "email": "roquefort@gmail.com",
-    "password": "$2a$10$u6BgqQPQ4L75p/PnU9t3MO4SPFLIO/JQl0u/St85yuaJ.GrngU8Ni",
-    "confirm_password": "roquino",
-    "birthdate": "2022-05-12",
-    "id": 12,
-    "profile_pic": "user-1653807046518.jpg"
-  },
-  {
-    "first_name": "Gordillo",
-    "last_name": "Carlos",
-    "username": "123123123",
-    "email": "gordillocarlosn@gmail.com",
-    "password": "$2a$10$/Av3hWJiE8bRA6QomYQ3l.uwAjfbdprlYqpHljcdQFgdBqijKePge",
-    "confirm_password": "38463551",
-    "birthdate": "2022-05-12",
-    "id": 13,
-    "profile_pic": "user-1653810948917.jpg"
   }
 ]

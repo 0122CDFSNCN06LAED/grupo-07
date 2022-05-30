@@ -9,8 +9,7 @@ const PRODUCTS = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 module.exports = {
   home: (req, res) => {
     res.render("index", {
-      products: PRODUCTS,
-      log_flag: req.session.usuarioLogueado ? true : false
+      products: PRODUCTS
     });
   },
   carrito: (req, res) => {

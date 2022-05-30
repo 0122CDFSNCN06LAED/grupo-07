@@ -14,7 +14,17 @@ const validaciones = (control) => {
         body('email').isEmail().withMessage('Debe ingresar un email válido'),
         body('password').isLength({min: 6}).withMessage('Debe ingresar una contraseña válida de más de 6 caracteres'),
         body('confirm_password').isLength({min: 6}).withMessage('Debe ingresar una contraseña válida de más de 6 caracteres'),
-        body('birthdate').notEmpty().withMessage('Debe ingresar una fecha válido')]
+        body('birthdate').notEmpty().withMessage('Debe ingresar una fecha válido'),
+        body('password').custom((value, {req}) => {
+            if(value != req.body.confirm_password){
+                throw new Error('Las contraseñas no coinciden')
+            }
+            else{
+                return true
+            }
+        })
+            
+    ]
        }
 }
 
