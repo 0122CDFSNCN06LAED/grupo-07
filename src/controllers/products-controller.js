@@ -1,58 +1,96 @@
-const fs = require("fs");
 const path = require("path");
+const db = require('../data/models')
+const sequelize = db.sequelize
+const {Op} = require('sequelize')
+const moment = require('moment');
+const Product = require("../data/models/Product");
 
-const productsFilePath = path.join(__dirname, "../data/products.json");
-const PRODUCTS = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 module.exports = {
   index: (req, res) => {
-    res.render("products", {
-      products: PRODUCTS});
+    db.Product.findAll()
+    .then(product => {
+        res.render('products', {products: product})
+    })
   },
   create: (req, res) => {
     res.render("product-create-form");
   },
   store: (req, res) => {
-    const newId =
-      PRODUCTS.reduce((acc, p) => {
-        return p.id > acc ? p.id : acc;
-      }, 0) + 1;
-    const product = {
-      ...req.body,
-      id: newId
-      // image: req.file.filename
-    };
-    PRODUCTS.push(product);
-    const jsonTxt = JSON.stringify(PRODUCTS, null, 2);
-    fs.writeFileSync(productsFilePath, jsonTxt, "utf-8");
-    res.redirect("/products/description/"+newId);
+    db.Product.create({
+        brand: req.body.brand,
+        model: req.body.model,
+        manufacture_year: req.body.manufacture_year,
+        color: req.body.color,
+        door_number: req.body.door_number,
+        transmission: req.body.transmission,
+        motor_type: req.body.motor_type,
+        description: req.body.description,
+        price: req.body.price,
+        discount: req.body.discount
+    })
+    .then(() => {
+        return res.redirect('/')
+    })
+    .catch(error => res.send(error))
   },
+
   edit: (req, res) => {
     const id = req.params.id
-		const product = PRODUCTS.find(product => product.id == id);
-		res.render('product-edit-form',{product: product})
+    const product = db.Product.findByPk(id)
+    product.then(product => {
+        res.render('product-edit-form',{product: product})
+    })
+	
   },
   update: (req,res)=>{
     const id = req.params.id
-		const index = PRODUCTS.findIndex(product => product.id == id);
-		Object.assign(PRODUCTS[index],{
-			...req.body,
-      id
-		})
-		const jsonTxt = JSON.stringify(PRODUCTS,null,2)
-		fs.writeFileSync(productsFilePath, jsonTxt,'utf-8')
-		res.redirect('/products/description/'+id)
+    db.Product.update({
+        brand: req.body.brand,
+        model: req.body.model,
+        manufacture_year: req.body.manufacture_year,
+        color: req.body.color,
+        door_number: req.body.door_number,
+        transmission: req.body.transmission,
+        motor_type: req.body.motor_type,
+        description: req.body.description,
+        price: req.body.price,
+        discount: req.body.discount
+    },
+    {
+        where: {id: id}
+    })
+    .then(() => {
+        return res.redirect('/')
+    })
+    .catch(error => res.send(error))
+
+		
   },
   description: (req, res) => {
     const id = req.params.id;
-		const product = PRODUCTS.find(product => product.id == id);
-		res.render('description',{product: product})
+	const product = db.Product.findByPk(id)
+    .then(product => {
+        res.render('description',{product: product})
+    })
+    
+	
   },
   destroy: (req,res)=>{
     const id = req.params.id
-		PRODUCTS.splice(PRODUCTS.findIndex(product => product.id == id),1)
-		const jsonTxt = JSON.stringify(PRODUCTS,null,2)
-		fs.writeFileSync(productsFilePath, jsonTxt,'utf-8')
-		res.redirect('/products')
+    db.Product.destroy(
+        {
+            where: {
+                id: id
+            },
+            force: true
+        }
+    )
+    .then(() => {
+        return res.redirect('/')
+    })
+    .catch(error => {
+        res.send(error)
+    })
   }
 };

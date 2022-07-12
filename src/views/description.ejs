@@ -63,7 +63,7 @@
         </div>
       </div>
   <div class="margin-top centered">
-    <h2>Precio: $<%=product.price%></h2>
+    <h2>Precio de lista: $<%=product.price%></h2>
   </div>
   <div class="centered">
     <h3 class="h3-discount">Bonificación <%=product.discount%>% compra online</h3>
@@ -77,19 +77,11 @@
   </div>
   <div>
   <h3 class="h3-description-title margin-top">Características</h3>
-  <p class="h4-text-bold"> > General</p>
-  <p class="h5-text">Año: <%=product.model_year%></p>
-  <p class="h5-text">Procedencia: Brasil</p>
-  <p class="h5-text">Tipo de Combustible: <%=product.engine_type%></p>
+  <p class="h5-text">Año de fabricación: <%=product.manufacture_year%></p>
+  <p class="h5-text">Tipo de Combustible: <%=product.motor_type%></p>
   <p class="h5-text">Transmisión: <%=product.transmission%></p>
-  <p class="h5-text">Ubicación: <%=product.seller%></p>
-  <p class="h5-text">Stock ID: <%=product.id%></p>
-
-  <p class="h4-text-bold"> > Exterior</p>
-
-  <p class="h5-text">Número de Puertas: <%=product.doors%></p>
-  <p class="h5-text">Seguridad: <%=product.airbags%></p>
-  <p class="h5-text">Entretenimiento: Radio - FM/AM - Mp3 - Bluetooth</p>
+  <p class="h5-text">Número de Puertas: <%=product.door_number%></p>
+  <p class="h5-text">Color: <%=product.color%></p>
   </div>
   
   <div class="margin-top centered buttons2">

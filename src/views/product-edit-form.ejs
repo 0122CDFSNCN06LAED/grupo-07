@@ -36,10 +36,10 @@
             <input
               class="input"
               type="text"
-              name="model_year"
-              id="model_year"
+              name="manufacture_year"
+              id="manufacture_year"
               placeholder="Ej: 2000"
-              value="<%= product.model_year%>"
+              value="<%= product.manufacture_year%>"
             />
           </div>
           <!-- <div class="category-product">
@@ -56,18 +56,14 @@
           </div>
           <div class="number-doors" >
             <h4 class="item-title">Numero de puertas</h4>
-            <input class="input" type="number" name="doors" id="doors" placeholder="Ej: 5" value="<%= product.doors %>"/>
-            <div class="container-message-alert">
-              <p class="icon-message-alert"><i class="fa-solid fa-triangle-exclamation" class=></i></p>
-              <p class="message-alert">Solo números</p>
-            </div>
+            <input class="input" type="number" name="door_number" id="door_number" placeholder="Ej: 5" value="<%= product.door_number %>"/>
           </div>
           <div class="trasmition">
-            <h4 class="item-title">Trasmisión</h4>
+            <h4 class="item-title">Transmisión</h4>
             <input class="input" type="text" name="transmission" id="transmission" placeholder="Ej: Manual" value="<%= product.transmission %>"/></div>
             <div class="fuel-type">
               <h4 class="item-title">Tipo de motor</h4>
-              <input class="input" type="text" name="engine_type" id="engine_type" placeholder="Ej: Nafta" value="<%= product.engine_type %>"/>
+              <input class="input" type="text" name="motor_type" id="motor_type" placeholder="Ej: Nafta" value="<%= product.motor_type %>"/>
             </div>
           <!-- <div>
             <h4 class="item-title">Carga una imagen</h4>
@@ -81,7 +77,7 @@
 
           <div class="fuel-type">
             <h4 class="item-title">Descripción</h4>
-            <input class="input" type="text" name="description" id="description" placeholder="Ej: no se" />
+            <input class="input" type="text" name="description" id="description" value="<%= product.description %>" placeholder="Ej: no se" />
           </div>
 
           <div class="price-product">
@@ -89,8 +85,8 @@
             <input class="input" type="number" name="price" id="price" value="<%= product.price %>" />
           </div>
           <div class="discount-product">
-            <h4 class="item-title">Descuento</h4>
-            <input class="input" type="number" name="discount" id="discount" />
+            <h4 class="item-title">Descuento (%)</h4>
+            <input class="input" type="number" name="discount" id="discount" value="<%= product.discount %>"/>
           </div>
           <div class="buttons">
             <button class="button-send" type="submit">Actualizar</button>

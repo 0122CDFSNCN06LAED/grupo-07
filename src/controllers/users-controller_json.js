@@ -1,9 +1,8 @@
+const fs = require("fs");
 const path = require("path");
-const db = require('../data/models');
-const sequelize = db.sequelize;
-const { Op } = require("sequelize");
-const moment = require('moment');
 
+const usersFilePath = path.join(__dirname, "../data/users.json");
+const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 // Validaciones
 const { validationResult } = require("express-validator");
@@ -30,15 +29,29 @@ module.exports = {
   processLogin: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-      let userToLogin = db.User.findAll({
-        where: {
-          email: req.body.email
+      let userToLogin = users.find((user) => user.email == req.body.email);
+
+      if(userToLogin){
+        if(bcrypt.compareSync(req.body.password,userToLogin.hashed_password)){
+          req.session.usuarioLogueado = userToLogin;
+          if(req.body.rememberUser){
+            res.cookie('userEmail',req.body.email,{maxAge: (1000 * 40) * 1})
+          }
+          return res.redirect('/users/user-profile')
+        }else{
+          return res.render('login',{
+            errors: [{
+                msg: 'Credenciales inválidas'
+            }],
+            old: req.body})
         }
-      })
-      userToLogin
-      .then(res => {
-        console.log(res)
-      })
+      }else{
+        return res.render('login',{
+          errors: [{
+              msg: 'Credenciales inválidas'
+          }],
+          old: req.body})
+      }
     } else {
       res.render("login", {
         errors: errors.array(),

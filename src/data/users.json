@@ -159,5 +159,17 @@
     "username": "hmatuskiewicz9",
     "password": "NaSAWo",
     "ip_address": "131.24.169.132"
+  },
+  {
+    "first_name": "canela",
+    "last_name": "canela",
+    "username": "canela123",
+    "email": "canela@gmail.com",
+    "password": "123456",
+    "confirm_password": "123456",
+    "birthdate": "2022-07-22",
+    "id": 11,
+    "profile_pic": "unknown.jpg",
+    "hashed_password": "$2a$10$Z8KnmWOKacGbhCa4GcTK4.qbQy7wed2b/ET6J8Cn35WjXob2sO5FW"
   }
 ]
