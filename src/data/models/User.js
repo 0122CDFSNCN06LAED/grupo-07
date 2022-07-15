@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  let alias = 'User'
+  let alias = "User";
 
   let cols = {
     id: {
@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false,
     },
     password: {
-      type: dataTypes.STRING(50),
+      type: dataTypes.STRING(400),
       allowNull: false,
     },
     birth_date: {
@@ -43,15 +43,15 @@ module.exports = (sequelize, dataTypes) => {
 
   const User = sequelize.define(alias, cols, config);
 
-  User.associate = function(models) {
+  User.associate = function (models) {
     User.belongsToMany(models.Product, {
-        as: 'users',
-        through: 'users_products',
-        foreignKey: 'user_id',
-        otherKey: 'product_id',
-        timestamps: false
-    })
-  }
+      as: "users",
+      through: "users_products",
+      foreignKey: "user_id",
+      otherKey: "product_id",
+      timestamps: false,
+    });
+  };
 
-  return User
+  return User;
 };

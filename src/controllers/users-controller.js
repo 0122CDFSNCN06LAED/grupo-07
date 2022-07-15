@@ -1,9 +1,8 @@
 const path = require("path");
-const db = require('../data/models');
+const db = require("../data/models");
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
-const moment = require('moment');
-
+const moment = require("moment");
 
 // Validaciones
 const { validationResult } = require("express-validator");
@@ -14,11 +13,11 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
   userProfile: (req, res) => {
-    const loguedUser = req.session.usuarioLogueado
-    if(loguedUser){
-      res.render("user-profile", { user: loguedUser});
-    }else{
-      res.render('login')
+    const loguedUser = req.session.usuarioLogueado;
+    if (loguedUser) {
+      res.render("user-profile", { user: loguedUser });
+    } else {
+      res.render("login");
     }
   },
   register: (req, res) => {
@@ -27,28 +26,49 @@ module.exports = {
   login: (req, res) => {
     res.render("login");
   },
-  processLogin: (req, res) => {
+  processLogin: async (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-      let userToLogin = db.User.findAll({
-        where: {
-          email: req.body.email
+      let userToLogin;
+      await db.User.findOne({
+        where: { email: req.body.email },
+      }).then((data) => (userToLogin = data.dataValues));
+      console.log(req.body.password);
+      console.log(userToLogin.password);
+      console.log(
+        bcrypt.compareSync(
+          "lich2112",
+          "$2a$10$TN00v8zyNd3cE4Rn48ScjO2NLZGvbwWEu.d.6stK5Ag"
+        )
+      );
+      if (userToLogin) {
+        if (bcrypt.compareSync(req.body.password, userToLogin.password)) {
+          req.session.usuarioLogueado = userToLogin;
+          if (req.body.rememberUser) {
+            res.cookie("userEmail", req.body.email, { maxAge: 1000 * 40 * 1 });
+          }
+          return res.redirect("/users/user-profile");
+        } else {
+          return res.render("login", {
+            errors: [
+              {
+                msg: "Credenciales inválidas",
+              },
+            ],
+            old: req.body,
+          });
         }
-      })
-      userToLogin
-      .then(res => {
-        console.log(res)
-      })
+      }
     } else {
       res.render("login", {
         errors: errors.array(),
-        old: req.body});
+        old: req.body,
+      });
     }
-    
   },
-  logout: (req,res) =>{
-    req.session.usuarioLogueado = undefined
-    res.clearCookie('userEmail')
+  logout: (req, res) => {
+    req.session.usuarioLogueado = undefined;
+    res.clearCookie("userEmail");
     res.redirect("/users/login");
   },
   update: (req, res) => {
@@ -61,8 +81,8 @@ module.exports = {
     const jsonTxt = JSON.stringify(users, null, 2);
     fs.writeFileSync(usersFilePath, jsonTxt, "utf-8");
     // res.redirect("/users/user-profile");
-    req.session.usuarioLogueado = users[index]
-    res.render("user-profile", { user: req.session.usuarioLogueado})
+    req.session.usuarioLogueado = users[index];
+    res.render("user-profile", { user: req.session.usuarioLogueado });
   },
   destroy: (req, res) => {
     const id = req.params.id;
@@ -74,40 +94,39 @@ module.exports = {
     fs.writeFileSync(usersFilePath, jsonTxt, "utf-8");
     res.redirect("/");
   },
-  store: (req, res) => {
+  store: async (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-      const newId =
-        users.reduce((acc, p) => {
-          return p.id > acc ? p.id : acc;
-        }, 0) + 1;
+      let userInDB = await db.User.findAll({
+        where: { email: req.body.email },
+      });
 
-      let userInDB = users.find((user) => user.email == req.body.email);
-
-      if (userInDB) {
+      if (!(userInDB == "")) {
         return res.render("register", {
-          errors: [{
-              msg: 'Este email ya está registrado'
-          }],
-          old: req.body});
+          errors: [
+            {
+              msg: "Este email ya está registrado",
+            },
+          ],
+          old: req.body,
+        });
       }
+      let encryptedPass = bcrypt.hashSync(req.body.password, 10);
+      db.User.create({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        password: encryptedPass,
+        birth_date: req.body.first_name,
+        avatar: req.file ? req.file.filename : "unknown.jpg",
+      });
 
-      const user = {
-        ...req.body,
-        id: Number(newId),
-        profile_pic: req.file ? req.file.filename : "unknown.jpg",
-        hashed_password: bcrypt.hashSync(req.body.password, 10),
-      };
-
-      users.push(user);
-
-      const jsonTxt = JSON.stringify(users, null, 2);
-      fs.writeFileSync(usersFilePath, jsonTxt, "utf-8");
       res.render("login");
     } else {
       res.render("register", {
         errors: errors.array(),
-        old: req.body});
+        old: req.body,
+      });
     }
   },
 };
