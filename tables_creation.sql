@@ -8,7 +8,7 @@ id int unsigned NOT NULL AUTO_INCREMENT,
 first_name varchar(50) COLLATE utf8_unicode_ci NOT NULL,
 last_name varchar(50) COLLATE utf8_unicode_ci NOT NULL,
  email varchar(50) COLLATE utf8_unicode_ci NOT NULL,
- password varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+ password varchar(255) COLLATE utf8_unicode_ci NOT NULL,
  birth_date date NOT NULL,
  avatar varchar(200),
  primary key (id)

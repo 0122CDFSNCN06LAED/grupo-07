@@ -33,14 +33,6 @@ module.exports = {
       await db.User.findOne({
         where: { email: req.body.email },
       }).then((data) => (userToLogin = data.dataValues));
-      console.log(req.body.password);
-      console.log(userToLogin.password);
-      console.log(
-        bcrypt.compareSync(
-          "lich2112",
-          "$2a$10$TN00v8zyNd3cE4Rn48ScjO2NLZGvbwWEu.d.6stK5Ag"
-        )
-      );
       if (userToLogin) {
         if (bcrypt.compareSync(req.body.password, userToLogin.password)) {
           req.session.usuarioLogueado = userToLogin;
@@ -71,27 +63,31 @@ module.exports = {
     res.clearCookie("userEmail");
     res.redirect("/users/login");
   },
-  update: (req, res) => {
+  update: async (req, res) => {
     const id = req.params.id;
-    const index = users.findIndex((user) => user.id == id);
-    Object.assign(users[index], {
-      ...req.body,
-      id,
-    });
-    const jsonTxt = JSON.stringify(users, null, 2);
-    fs.writeFileSync(usersFilePath, jsonTxt, "utf-8");
-    // res.redirect("/users/user-profile");
-    req.session.usuarioLogueado = users[index];
-    res.render("user-profile", { user: req.session.usuarioLogueado });
+    let session;
+    await db.User.findByPk(id).then((data) => (session = data.dataValues));
+    console.log(session);
+    db.User.update(
+      {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+      },
+      {
+        where: { id: id },
+      }
+    )
+      .then(() =>
+        res.render("user-profile", { user: req.session.usuarioLogueado })
+      )
+      .catch((error) => res.send(error));
   },
   destroy: (req, res) => {
     const id = req.params.id;
-    users.splice(
-      users.findIndex((user) => user.id == id),
-      1
-    );
-    const jsonTxt = JSON.stringify(users, null, 2);
-    fs.writeFileSync(usersFilePath, jsonTxt, "utf-8");
+    db.User.destroy({ where: { id: id } });
+    req.session.usuarioLogueado = undefined;
+    res.clearCookie("userEmail");
     res.redirect("/");
   },
   store: async (req, res) => {
@@ -111,12 +107,12 @@ module.exports = {
           old: req.body,
         });
       }
-      let encryptedPass = bcrypt.hashSync(req.body.password, 10);
+
       db.User.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
-        password: encryptedPass,
+        password: bcrypt.hashSync(req.body.password, 10),
         birth_date: req.body.first_name,
         avatar: req.file ? req.file.filename : "unknown.jpg",
       });

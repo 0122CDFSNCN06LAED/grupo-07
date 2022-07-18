@@ -8,85 +8,89 @@
     <main>
       <h2>Perfil de usuario</h2>
       <div class="register_container">
-        <img src="/img/user-img/<%= user.profile_pic %>" alt="En ruedas" class="user-img" />
+        <img
+          src="/img/user-img/<%= user.avatar %>"
+          alt="En ruedas"
+          class="user-img"
+        />
         <form action="/users/<%= user.id %>?_method=PUT" method="POST">
-        <div class="register_nombre">
-          <h4>Nombre</h4>
-          <input
-            class="input"
-            type="text"
-            name="first_name"
-            id="first_name"
-            value = "<%= user.first_name %> "
-          />
-        </div>
+          <div class="register_nombre">
+            <h4>Nombre</h4>
+            <input
+              class="input"
+              type="text"
+              name="first_name"
+              id="first_name"
+              value="<%= user.first_name %>"
+            />
+          </div>
 
-        <div class="register_apellido">
-          <h4>Apellido</h4>
-          <input
-            class="input"
-            type="text"
-            name="last_name"
-            id="last_name"
-            value = "<%= user.last_name %> "
-          />
-        </div>
+          <div class="register_apellido">
+            <h4>Apellido</h4>
+            <input
+              class="input"
+              type="text"
+              name="last_name"
+              id="last_name"
+              value="<%= user.last_name %>"
+            />
+          </div>
 
-        <div class="register_usuario">
-          <h4>Usuario</h4>
-          <input
-            class="input"
-            type="text"
-            name="username"
-            id="username"
-            value = "<%= user.username %> "
-          />
-        </div>
+          <div class="register_usuario">
+            <h4>Usuario</h4>
+            <input
+              class="input"
+              type="text"
+              name="username"
+              id="username"
+              value="<%= user.username %>"
+            />
+          </div>
 
-        <div class="register_email">
-          <h4>Correo electrónico</h4>
-          <input
-            class="input"
-            type="email"
-            name="email"
-            id="email"
-            value = "<%= user.email %> "
-          />
-        </div>
+          <div class="register_email">
+            <h4>Correo electrónico</h4>
+            <input
+              class="input"
+              type="email"
+              name="email"
+              id="email"
+              value="<%= user.email %>"
+            />
+          </div>
 
-        <div class="register_password">
-          <h4>Contraseña</h4>
-          <input
-            class="input"
-            type="password"
-            name="password"
-            id="password"
-            value = "<%= user.password %> "
-          />
-        </div>
+          <div class="register_password">
+            <h4>Contraseña</h4>
+            <input
+              class="input"
+              type="password"
+              name="password"
+              id="password"
+              value="<%= user.password %>"
+            />
+          </div>
 
-        <div class="register_birthdate">
-          <h4>Fecha de nacimiento</h4>
-          <input
-            class="input"
-            type="date"
-            name="birthdate"
-            id="birthdate"
-            value = "<%= user.birth_date %> "
-          />
-        </div>
+          <div class="register_birthdate">
+            <h4>Fecha de nacimiento</h4>
+            <input
+              class="input"
+              type="date"
+              name="birthdate"
+              id="birthdate"
+              value="<%= user.birth_date %>"
+            />
+          </div>
 
-        <div class="buttons">
-          <button class="button-send" type="submit">Modificar datos</button>
-          <button class="button-reset" type="reset">Descartar cambios</button>
-        </div>
-      
-      </form>
-      <form action="/users/<%=user.id%>?_method=DELETE" method="POST" >
-        <button type="submit" class="button-send delete">Eliminar usuario</button>
-      </form>
+          <div class="buttons">
+            <button class="button-send" type="submit">Modificar datos</button>
+            <button class="button-reset" type="reset">Descartar cambios</button>
+          </div>
+        </form>
+        <form action="/users/<%=user.id%>?_method=DELETE" method="POST">
+          <button type="submit" class="button-send delete">
+            Eliminar usuario
+          </button>
+        </form>
       </div>
-
     </main>
     <footer><%- include("./partials/footer.ejs")%></footer>
   </body>
