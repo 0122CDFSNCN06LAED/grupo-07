@@ -10,6 +10,7 @@ const { fileURLToPath } = require("url");
 
 // Hashear contraseña
 const bcrypt = require("bcryptjs");
+const session = require("express-session");
 
 module.exports = {
   userProfile: (req, res) => {
@@ -28,6 +29,7 @@ module.exports = {
   },
   processLogin: async (req, res) => {
     let errors = validationResult(req);
+    res.send(errors);
     if (errors.isEmpty()) {
       let userToLogin;
       await db.User.findOne({
@@ -65,27 +67,32 @@ module.exports = {
   },
   update: async (req, res) => {
     const id = req.params.id;
-    let session;
-    await db.User.findByPk(id).then((data) => (session = data.dataValues));
-    console.log(session);
+
     db.User.update(
       {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
+        birth_date: req.body.birthdate,
       },
       {
         where: { id: id },
       }
     )
-      .then(() =>
-        res.render("user-profile", { user: req.session.usuarioLogueado })
-      )
+      .then(() => {
+        db.User.findOne({
+          where: { id: req.params.id },
+        }).then((data) => {
+          req.session.usuarioLogueado = data.dataValues;
+          res.render("user-profile", {
+            user: req.session.usuarioLogueado,
+          });
+        });
+      })
       .catch((error) => res.send(error));
   },
   destroy: (req, res) => {
-    const id = req.params.id;
-    db.User.destroy({ where: { id: id } });
+    db.User.destroy({ where: { id: req.params.id } });
     req.session.usuarioLogueado = undefined;
     res.clearCookie("userEmail");
     res.redirect("/");
@@ -113,7 +120,7 @@ module.exports = {
         last_name: req.body.last_name,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 10),
-        birth_date: req.body.first_name,
+        birth_date: req.body.birthdate,
         avatar: req.file ? req.file.filename : "unknown.jpg",
       });
 

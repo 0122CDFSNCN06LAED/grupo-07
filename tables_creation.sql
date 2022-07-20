@@ -40,6 +40,7 @@ motor_type varchar(50) COLLATE utf8_unicode_ci NOT NULL,
 description varchar(200) COLLATE utf8_unicode_ci,
 price int NOT NULL,
 discount int,
+image varchar(200),
 primary key (id)
 );
 

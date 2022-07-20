@@ -41,13 +41,17 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: true,
     },
     price: {
-        type: dataTypes.BIGINT(10).UNSIGNED,
-        allowNull: false
+      type: dataTypes.BIGINT(10).UNSIGNED,
+      allowNull: false,
     },
     discount: {
       type: dataTypes.BIGINT(10).UNSIGNED,
-      allowNull: false
-  }
+      allowNull: false,
+    },
+    image: {
+      type: dataTypes.STRING(200),
+      allowNull: true,
+    },
   };
 
   let config = {
@@ -57,7 +61,7 @@ module.exports = (sequelize, dataTypes) => {
     deletedAt: false,
   };
 
-  const Product = sequelize.define(alias, cols, config)
+  const Product = sequelize.define(alias, cols, config);
 
-  return Product
+  return Product;
 };

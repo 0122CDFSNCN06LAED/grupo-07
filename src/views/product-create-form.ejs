@@ -6,8 +6,13 @@
   <body>
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
-      <h2 class="title-form">Crea un producto</h2>     
-      <form action="/products" method="POST">
+      <h2 class="title-form">Crea un producto</h2>   
+      
+      <% if (locals.errors) { errors.forEach(error => { %>
+        <p class="feedback is-danger"><%= error.msg%></p>
+      <% })}%>
+
+      <form action="/products" method="POST" enctype="multipart/form-data">
         <div class="register_container">       
           <div class="name-product">
             <h4 class="item-title">Indica marca</h4>
@@ -17,6 +22,7 @@
               name="brand"
               id="brand"
               placeholder="Ej: Ford"
+              value="<%= locals.old && old.first_name ? old.first_name : '' %>"
             />
           </div>
           <div class="name-product">
@@ -70,8 +76,8 @@
             <h4 class="item-title">Carga una imagen</h4>
             <input
             type="file"
-            name="productPic"
-            id="productPic"
+            name="image"
+            id="image"
             class="input"
           />
           </div>

@@ -6,8 +6,13 @@
   <body>
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
-      <h2 class="title-form">Editando: <i><%=product.brand%></i></h2>     
-      <form action="/products/<%= product.id %>?_method=PUT" method="POST">
+      <h2 class="title-form">Editando: <i><%=product.brand%></i></h2>   
+      
+      <% if (locals.errors) { errors.forEach(error => { %>
+        <p class="feedback is-danger"><%= error.msg%></p>
+      <% })}%>
+
+      <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="register_container">       
           <div class="name-product">
             <h4 class="item-title">Indica marca </h4>
@@ -65,15 +70,15 @@
               <h4 class="item-title">Tipo de motor</h4>
               <input class="input" type="text" name="motor_type" id="motor_type" placeholder="Ej: Nafta" value="<%= product.motor_type %>"/>
             </div>
-          <!-- <div>
+          <div>
             <h4 class="item-title">Carga una imagen</h4>
             <input
             type="file"
-            name="productPic"
-            id="productPic"
+            name="image"
+            id="image"
             class="input"
           />
-          </div> -->
+          </div>
 
           <div class="fuel-type">
             <h4 class="item-title">Descripción</h4>
