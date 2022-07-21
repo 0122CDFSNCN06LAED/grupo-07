@@ -28,34 +28,46 @@ module.exports = {
     res.render("login");
   },
   processLogin: async (req, res) => {
-    let errors = validationResult(req);
-    res.send(errors);
-    if (errors.isEmpty()) {
-      let userToLogin;
-      await db.User.findOne({
-        where: { email: req.body.email },
-      }).then((data) => (userToLogin = data.dataValues));
-      if (userToLogin) {
-        if (bcrypt.compareSync(req.body.password, userToLogin.password)) {
-          req.session.usuarioLogueado = userToLogin;
-          if (req.body.rememberUser) {
-            res.cookie("userEmail", req.body.email, { maxAge: 1000 * 40 * 1 });
+    let isInDb;
+    await db.User.findOne({
+      where: { email: req.body.email },
+    }).then((data) => (isInDb = data));
+    if (isInDb != null) {
+      let errors = validationResult(req);
+      if (errors.isEmpty()) {
+        let userToLogin;
+        await db.User.findOne({
+          where: { email: req.body.email },
+        }).then((data) => (userToLogin = data.dataValues));
+        if (userToLogin) {
+          if (bcrypt.compareSync(req.body.password, userToLogin.password)) {
+            req.session.usuarioLogueado = userToLogin;
+            if (req.body.rememberUser) {
+              res.cookie("userEmail", req.body.email, {
+                maxAge: 1000 * 40 * 1,
+              });
+            }
+            return res.redirect("/users/user-profile");
+          } else {
+            return res.render("login", {
+              errors: [
+                {
+                  msg: "Credenciales inválidas",
+                },
+              ],
+              old: req.body,
+            });
           }
-          return res.redirect("/users/user-profile");
-        } else {
-          return res.render("login", {
-            errors: [
-              {
-                msg: "Credenciales inválidas",
-              },
-            ],
-            old: req.body,
-          });
         }
+      } else {
+        res.render("login", {
+          errors: errors.array(),
+          old: req.body,
+        });
       }
     } else {
-      res.render("login", {
-        errors: errors.array(),
+      return res.render("login", {
+        errors: [{ msg: "El email no se encuentra en la base de datos" }],
         old: req.body,
       });
     }

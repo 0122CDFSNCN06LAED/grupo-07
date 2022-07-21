@@ -22,7 +22,7 @@
               name="brand"
               id="brand"
               placeholder="Ej: Ford Fiesta"
-              value="<%= product.brand %>"
+              value="<%= locals.old && old.brand? old.brand : product.brand %>"
             />
           </div>
           <div class="name-product">
@@ -33,7 +33,7 @@
               name="model"
               id="model"
               placeholder="Ej: Fiesta"
-              value="<%= product.model %>"
+              value="<%= locals.old && old.brand? old.brand : product.model %>"
             />
           </div>
           <div class="version-product">
@@ -44,7 +44,7 @@
               name="manufacture_year"
               id="manufacture_year"
               placeholder="Ej: 2000"
-              value="<%= product.manufacture_year%>"
+              value="<%= locals.old && old.brand? old.brand : product.manufacture_year %>"
             />
           </div>
           <!-- <div class="category-product">
@@ -57,24 +57,24 @@
           </div> -->
           <div class="color-product">
             <h4 class="item-title">Color</h4>
-            <input class="input" type="text" name="color" id="color" placeholder="Ej: Rojo" value="<%= product.color %>"/>
+            <input class="input" type="text" name="color" id="color" placeholder="Ej: Rojo" value="<%= locals.old && old.brand? old.brand : product.color %>"/>
           </div>
           <div class="number-doors" >
             <h4 class="item-title">Numero de puertas</h4>
-            <input class="input" type="number" name="door_number" id="door_number" placeholder="Ej: 5" value="<%= product.door_number %>"/>
+            <input class="input" type="number" name="door_number" id="door_number" placeholder="Ej: 5" value="<%= locals.old && old.brand? old.brand : product.door_number %>"/>
           </div>
           <div class="trasmition">
             <h4 class="item-title">Transmisión</h4>
-            <input class="input" type="text" name="transmission" id="transmission" placeholder="Ej: Manual" value="<%= product.transmission %>"/></div>
+            <input class="input" type="text" name="transmission" id="transmission" placeholder="Ej: Manual" value="<%= locals.old && old.brand? old.brand : product.transmission %>"/></div>
             <div class="fuel-type">
               <h4 class="item-title">Tipo de motor</h4>
-              <input class="input" type="text" name="motor_type" id="motor_type" placeholder="Ej: Nafta" value="<%= product.motor_type %>"/>
+              <input class="input" type="text" name="motor_type" id="motor_type" placeholder="Ej: Nafta" value="<%= locals.old && old.brand? old.brand : product.motor_type %>"/>
             </div>
           <div>
             <h4 class="item-title">Carga una imagen</h4>
             <input
             type="file"
-            name="image"
+            name="image_edit"
             id="image"
             class="input"
           />
@@ -82,16 +82,16 @@
 
           <div class="fuel-type">
             <h4 class="item-title">Descripción</h4>
-            <input class="input" type="text" name="description" id="description" value="<%= product.description %>" placeholder="Ej: no se" />
+            <input class="input" type="text" name="description" id="description" value="<%= locals.old && old.brand? old.brand : product.description %>" placeholder="Ej: no se" />
           </div>
 
           <div class="price-product">
             <h4 class="item-title">Precio</h4>
-            <input class="input" type="number" name="price" id="price" value="<%= product.price %>" />
+            <input class="input" type="number" name="price" id="price" value="<%= locals.old && old.brand? old.brand : product.price %>" />
           </div>
           <div class="discount-product">
             <h4 class="item-title">Descuento (%)</h4>
-            <input class="input" type="number" name="discount" id="discount" value="<%= product.discount %>"/>
+            <input class="input" type="number" name="discount" id="discount" value="<%= locals.old && old.brand? old.brand : product.discount %>"/>
           </div>
           <div class="buttons">
             <button class="button-send" type="submit">Actualizar</button>

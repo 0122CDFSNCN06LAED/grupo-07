@@ -22,7 +22,7 @@
               name="brand"
               id="brand"
               placeholder="Ej: Ford"
-              value="<%= locals.old && old.first_name ? old.first_name : '' %>"
+              value="<%= locals.old && old.brand? old.brand : '' %>"
             />
           </div>
           <div class="name-product">
@@ -33,6 +33,8 @@
               name="model"
               id="model"
               placeholder="Ej: Fiesta"
+              value="<%= locals.old && old.model? old.model : '' %>"
+
             />
           </div>
           <div class="version-product">
@@ -43,6 +45,8 @@
               name="manufacture_year"
               id="manufacture_year"
               placeholder="Ej: 2000"
+              value="<%= locals.old && old.manufacture_year? old.manufacture_year : '' %>"
+
             />
           </div>
           <!--<div class="category-product">
@@ -55,11 +59,11 @@
           </div>-->
           <div class="color-product">
             <h4 class="item-title">Color</h4>
-            <input class="input" type="text" name="color" id="color" placeholder="Ej: Rojo"/>
+            <input class="input" type="text" name="color" id="color" placeholder="Ej: Rojo" value="<%= locals.old && old.color? old.color : '' %>"/>
           </div>
           <div class="number-doors" >
             <h4 class="item-title">Número de puertas</h4>
-            <input class="input" type="number" name="door_number" id="door_number" placeholder="Ej: 5"/>
+            <input class="input" type="number" name="door_number" id="door_number" placeholder="Ej: 5" value="<%= locals.old && old.number? old.number : '' %>"/>
             <!-- <div class="container-message-alert">
               <p class="icon-message-alert"><i class="fa-solid fa-triangle-exclamation" class=></i></p>
               <p class="message-alert">Solo números</p>
@@ -67,10 +71,10 @@
           </div>
           <div class="trasmition">
             <h4 class="item-title">Transmisión</h4>
-            <input class="input" type="text" name="transmission" id="transmission" placeholder="Ej: Manual"/></div>
+            <input class="input" type="text" name="transmission" id="transmission" placeholder="Ej: Manual" value="<%= locals.old && old.transmission? old.transmission : '' %>"/></div>
           <div class="fuel-type">
             <h4 class="item-title">Tipo de motor</h4>
-            <input class="input" type="text" name="motor_type" id="motor_type" placeholder="Ej: Nafta" />
+            <input class="input" type="text" name="motor_type" id="motor_type" placeholder="Ej: Nafta" value="<%= locals.old && old.motor_type? old.motor_type : '' %>"/>
           </div>
           <div>
             <h4 class="item-title">Carga una imagen</h4>
@@ -83,16 +87,16 @@
           </div>
           <div class="fuel-type">
             <h4 class="item-title">Descripción</h4>
-            <input class="input" type="text" name="description" id="description" placeholder="Ej: Buen producto, eficiente." />
+            <input class="input" type="text" name="description" id="description" placeholder="Ej: Buen producto, eficiente." value="<%= locals.old && old.description? old.description : '' %>"/>
           </div>
 
           <div class="price-product">
             <h4 class="item-title">Precio</h4>
-            <input class="input" type="number" name="price" id="price" />
+            <input class="input" type="number" name="price" id="price" value="<%= locals.old && old.price? old.price : '' %>"/>
           </div>
           <div class="discount-product">
             <h4 class="item-title">Descuento</h4>
-            <input class="input" type="number" name="discount" id="discount" />
+            <input class="input" type="number" name="discount" id="discount" value="<%= locals.old && old.discount? old.discount : '' %>"/>
           </div>
           <div class="buttons">
             <button class="button-send" type="submit">Crear</button>
