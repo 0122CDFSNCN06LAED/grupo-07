@@ -30,8 +30,8 @@ module.exports = {
         price: req.body.price,
         discount: req.body.discount,
         image: req.file
-          ? "/img/products-img/" + req.file.filename
-          : "/images/products-img/default-image.png",
+          ? req.file.filename
+          : "default-image.png",
       })
         .then(() => {
           return res.redirect("/");

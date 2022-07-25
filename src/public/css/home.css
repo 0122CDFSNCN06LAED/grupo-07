@@ -308,17 +308,17 @@
   .product-card {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
     margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 22%;
+    margin-left: 20px;
+    width: calc(22vw - 10px);
+    min-width: 15vw;
   }
 
   .product-card:hover {
     box-shadow: 0px 0px 30px rgb(34, 83, 118);
     margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 22%;
+    margin-left: 20px;
+    width: calc(22vw - 5px);
+    min-width: 15vw;
   }
 
   .size-img {

@@ -84,8 +84,10 @@ module.exports = {
       {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
+        username: req.body.username,
         email: req.body.email,
         birth_date: req.body.birthdate,
+
       },
       {
         where: { id: id },
@@ -131,7 +133,9 @@ module.exports = {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
+        username: req.body.username,
         password: bcrypt.hashSync(req.body.password, 10),
+        // password: req.body.password,
         birth_date: req.body.birthdate,
         avatar: req.file ? req.file.filename : "unknown.jpg",
       });
