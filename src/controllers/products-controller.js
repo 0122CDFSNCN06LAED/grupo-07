@@ -12,6 +12,17 @@ module.exports = {
       res.render("products", { products: product });
     });
   },
+  search: (req,res) => {
+    db.Product.findAll({
+      where: {
+        brand: {
+          [Op.like]: '%'+req.body.search+'%'}
+      }
+    })
+    .then(product => {
+      res.render("products", { products: product })
+    })
+  },
   create: (req, res) => {
     res.render("product-create-form");
   },
@@ -103,11 +114,34 @@ module.exports = {
   description: (req, res) => {
     const id = req.params.id;
     const product = db.Product.findByPk(id).then((product) => {
-      res.render("description", { 
-        product: product,
-        edit_delete: false
-      });
+      edit_delete = req.session.usuarioLogueado != undefined
+      if(edit_delete){
+        db.Users_Products.findAll({
+          where: {
+            user_id: req.session.usuarioLogueado.id
+          }
+        })
+        .then(prods => prods.filter(prod => prod.product_id == id))
+        .then(result => {
+          if(result.length == 0){
+            edit_delete = false
+          }else{
+            edit_delete = true
+          }
+          res.render("description", { 
+            product: product,
+            edit_delete: edit_delete
+          })
+        })
+      }else{
+        res.render("description", { 
+          product: product,
+          edit_delete: edit_delete
+        })
+      }
+
     });
+    
   },
   destroy: (req, res) => {
     const id = req.params.id;

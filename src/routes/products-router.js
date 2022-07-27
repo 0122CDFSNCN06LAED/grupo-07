@@ -23,6 +23,8 @@ const productsValidation = require("../middlewares/productsValidation");
 /*** GET ALL PRODUCTS ***/
 router.get("/" ,productController.index);
 
+/*** SEARCH PRODUCTS ***/
+router.post('/search', productController.search)
 /*** CREATE ONE PRODUCT ***/
 router.get("/create",guestMiddleware, productController.create); // Get al formulario de creacion de un producto
 router.post(

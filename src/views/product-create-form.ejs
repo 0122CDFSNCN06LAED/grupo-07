@@ -41,7 +41,7 @@
             <h4 class="item-title"> Año de fabricación </h4>
             <input
               class="input"
-              type="text"
+              type="number"
               name="manufacture_year"
               id="manufacture_year"
               placeholder="Ej: 2000"
@@ -49,14 +49,6 @@
 
             />
           </div>
-          <!--<div class="category-product">
-            <h4 class="item-title">¿A qué categoría pertenece?</h4>
-            <select class="input" name="category" id="category">
-              <option value="">Elegí una opcion</option>
-              <option value="new">Nuevo</option>
-              <option value="used">Usado</option>
-            </select>
-          </div>-->
           <div class="color-product">
             <h4 class="item-title">Color</h4>
             <input class="input" type="text" name="color" id="color" placeholder="Ej: Rojo" value="<%= locals.old && old.color? old.color : '' %>"/>
@@ -64,10 +56,6 @@
           <div class="number-doors" >
             <h4 class="item-title">Número de puertas</h4>
             <input class="input" type="number" name="door_number" id="door_number" placeholder="Ej: 5" value="<%= locals.old && old.number? old.number : '' %>"/>
-            <!-- <div class="container-message-alert">
-              <p class="icon-message-alert"><i class="fa-solid fa-triangle-exclamation" class=></i></p>
-              <p class="message-alert">Solo números</p>
-            </div> -->
           </div>
           <div class="trasmition">
             <h4 class="item-title">Transmisión</h4>
