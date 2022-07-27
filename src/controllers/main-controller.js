@@ -17,5 +17,13 @@ module.exports = {
     })
   },
   carrito: (req, res) => {
-  }  
+
+    db.Product.findAll({
+      limit: 3
+    }).then((product) => {
+      res.render('index', {
+        products: product
+      })
+    })
+  },
 };

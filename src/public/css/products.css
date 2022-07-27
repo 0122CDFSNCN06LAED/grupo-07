@@ -158,10 +158,11 @@
     margin-top: 20px;
     margin-left: 20px;
     width: calc(22vw - 10px);
+    max-height: 22vw;
   }
 
   .size-img {
-    width: 80%;
+    width: 75%;
   }
 
   .container-title {

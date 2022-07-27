@@ -48,7 +48,7 @@ const productsApiController = {
         [
           db.Product.sequelize.fn(
             "CONCAT",
-            "/img/product-img",
+            "/img/products-img/",
             db.Product.sequelize.col("image")
           ),
           "image",

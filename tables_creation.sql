@@ -62,8 +62,8 @@ product_id int unsigned NOT NULL,
 primary key (id),
 key users_products_user_id_foreign (user_id),
 key users_products_product_id_foreign (product_id),
-constraint users_products_user_id_foreign foreign key (user_id) references users (id),
-constraint users_products_product_id_foreign foreign key (product_id) references products (id)
+constraint users_products_user_id_foreign foreign key (user_id) references users (id) ON UPDATE CASCADE,
+constraint users_products_product_id_foreign foreign key (product_id) references products (id) ON UPDATE CASCADE
 );
 
 INSERT INTO users_products VALUES

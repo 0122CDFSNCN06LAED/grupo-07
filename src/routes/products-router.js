@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const multer = require("multer");
+const guestMiddleware = require('../middlewares/guestMiddleware')
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -20,10 +21,10 @@ const productController = require("../controllers/products-controller");
 const productsValidation = require("../middlewares/productsValidation");
 
 /*** GET ALL PRODUCTS ***/
-router.get("/", productController.index);
+router.get("/" ,productController.index);
 
 /*** CREATE ONE PRODUCT ***/
-router.get("/create", productController.create); // Get al formulario de creacion de un producto
+router.get("/create",guestMiddleware, productController.create); // Get al formulario de creacion de un producto
 router.post(
   "/",
   upload.single("image"),

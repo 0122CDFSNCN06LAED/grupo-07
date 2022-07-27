@@ -33,10 +33,23 @@ module.exports = {
           ? req.file.filename
           : "default-image.png",
       })
+      .then(() => {
+        let new_id = db.Product.findAll().then(result => result[result.length -1 ].id)
+        new_id.then(R => {
+          db.Users_Products.create({
+            user_id: req.session.usuarioLogueado.id,
+            product_id: R
+          })
+        })
+      })
         .then(() => {
           return res.redirect("/");
         })
-        .catch((error) => res.send(error));
+        .catch((error) => res.send(error))
+
+      
+      
+      
     } else {
       res.render("product-create-form", {
         errors: errors.array(),
@@ -90,7 +103,10 @@ module.exports = {
   description: (req, res) => {
     const id = req.params.id;
     const product = db.Product.findByPk(id).then((product) => {
-      res.render("description", { product: product });
+      res.render("description", { 
+        product: product,
+        edit_delete: false
+      });
     });
   },
   destroy: (req, res) => {

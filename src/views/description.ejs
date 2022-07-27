@@ -86,13 +86,16 @@
   
   <div class="margin-top centered buttons2">
 
-    <form action="/products/edit/<%=product.id%>" method="" >
-      <button type="submit" class="button-send delete">EDITAR PRODUCTO</button>
-    </form>
-
-    <form action="/products/<%=product.id%>?_method=DELETE" method="POST" >
-      <button type="submit" class="button-send delete">ELIMINAR</button>
-    </form>
+    <% if (edit_delete) { %>
+      <form action="/products/edit/<%=product.id%>" method="" >
+        <button type="submit" class="button-send delete">EDITAR PRODUCTO</button>
+      </form>
+  
+      <form action="/products/<%=product.id%>?_method=DELETE" method="POST" >
+        <button type="submit" class="button-send delete">ELIMINAR</button>
+      </form>
+    <% } %>
+    
   </div>
 
 
