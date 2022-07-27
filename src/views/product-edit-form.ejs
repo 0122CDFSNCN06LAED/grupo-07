@@ -47,14 +47,7 @@
               value="<%= locals.old && old.brand? old.brand : product.manufacture_year %>"
             />
           </div>
-          <!-- <div class="category-product">
-            <h4 class="item-title">¿A qué categoría pertenece?</h4>
-            <select class="input" name="category" id="category">
-              <option value="">Elegí una opcion</option>
-              <option value="new">Nuevo</option>
-              <option value="used">Usado</option>
-            </select>
-          </div> -->
+
           <div class="color-product">
             <h4 class="item-title">Color</h4>
             <input class="input" type="text" name="color" id="color" placeholder="Ej: Rojo" value="<%= locals.old && old.brand? old.brand : product.color %>"/>
@@ -70,15 +63,16 @@
               <h4 class="item-title">Tipo de motor</h4>
               <input class="input" type="text" name="motor_type" id="motor_type" placeholder="Ej: Nafta" value="<%= locals.old && old.brand? old.brand : product.motor_type %>"/>
             </div>
-          <div>
+          <!-- <div>
             <h4 class="item-title">Carga una imagen</h4>
             <input
             type="file"
             name="image_edit"
             id="image"
             class="input"
+            value="<%= locals.old && old.brand? 'hola' : 'hols2' %>"
           />
-          </div>
+          </div> -->
 
           <div class="fuel-type">
             <h4 class="item-title">Descripción</h4>

@@ -91,10 +91,7 @@ module.exports = {
           motor_type: req.body.motor_type,
           description: req.body.description,
           price: req.body.price,
-          discount: req.body.discount,
-          image: req.file
-            ? "/images/products/" + req.file.filename
-            : product.image,
+          discount: req.body.discount
         },
         {
           where: { id: id },

@@ -25,12 +25,13 @@ router.get("/" ,productController.index);
 
 /*** SEARCH PRODUCTS ***/
 router.post('/search', productController.search)
+
 /*** CREATE ONE PRODUCT ***/
 router.get("/create",guestMiddleware, productController.create); // Get al formulario de creacion de un producto
 router.post(
   "/",
   upload.single("image"),
-  productsValidation,
+  productsValidation('create'),
   productController.store
 );
 
@@ -39,7 +40,7 @@ router.get("/edit/:id", productController.edit);
 router.put(
   "/:id",
   upload.single("image"),
-  productsValidation,
+  productsValidation('update'),
   productController.update
 );
 
