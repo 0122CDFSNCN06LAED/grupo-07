@@ -13,7 +13,18 @@
       <% })}%>
 
       <form action="/products" method="POST" enctype="multipart/form-data">
-        <div class="register_container">       
+        <div class="register_container">      
+          <div class="name-product">
+            <h4 class="item-title">Indica categoria</h4>
+              <select class="input" name="category" id="category">
+                <option value="" selected>Selecciona una categoria</option>
+                <% category.forEach(category=> { %>
+                  <option name="category" value="<%= category.id %>">
+                    <%= category.cat %>
+                      </option>
+                    <% }) %>
+                  </select>
+          </div> 
           <div class="name-product">
             <h4 class="item-title">Indica marca</h4>
             <input

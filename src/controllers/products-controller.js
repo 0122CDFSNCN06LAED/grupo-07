@@ -4,6 +4,7 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const moment = require("moment");
 const Product = require("../data/models/Product");
+const Category = require("../data/models/Category");
 const { validationResult } = require("express-validator");
 
 module.exports = {
@@ -12,24 +13,28 @@ module.exports = {
       res.render("products", { products: product });
     });
   },
-  search: (req,res) => {
+  search: (req, res) => {
     db.Product.findAll({
       where: {
         brand: {
-          [Op.like]: '%'+req.body.search+'%'}
-      }
-    })
-    .then(product => {
-      res.render("products", { products: product })
-    })
+          [Op.like]: "%" + req.body.search + "%",
+        },
+      },
+    }).then((product) => {
+      res.render("products", { products: product });
+    });
   },
-  create: (req, res) => {
-    res.render("product-create-form");
+  create: async (req, res) => {
+    const category = await db.Category.findAll();
+    res.render("product-create-form", {
+      category: category,
+    });
   },
   store: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       db.Product.create({
+        category: req.body.category,
         brand: req.body.brand,
         model: req.body.model,
         manufacture_year: req.body.manufacture_year,
@@ -40,27 +45,23 @@ module.exports = {
         description: req.body.description,
         price: req.body.price,
         discount: req.body.discount,
-        image: req.file
-          ? req.file.filename
-          : "default-image.png",
+        image: req.file ? req.file.filename : "default-image.png",
       })
-      .then(() => {
-        let new_id = db.Product.findAll().then(result => result[result.length -1 ].id)
-        new_id.then(R => {
-          db.Users_Products.create({
-            user_id: req.session.usuarioLogueado.id,
-            product_id: R
-          })
+        .then(() => {
+          let new_id = db.Product.findAll().then(
+            (result) => result[result.length - 1].id
+          );
+          new_id.then((R) => {
+            db.Users_Products.create({
+              user_id: req.session.usuarioLogueado.id,
+              product_id: R,
+            });
+          });
         })
-      })
         .then(() => {
           return res.redirect("/");
         })
-        .catch((error) => res.send(error))
-
-      
-      
-      
+        .catch((error) => res.send(error));
     } else {
       res.render("product-create-form", {
         errors: errors.array(),
@@ -69,12 +70,11 @@ module.exports = {
     }
   },
 
-  edit: (req, res) => {
+  edit: async (req, res) => {
     const id = req.params.id;
-    const product = db.Product.findByPk(id);
-    product.then((product) => {
-      res.render("product-edit-form", { product: product });
-    });
+    const product = await db.Product.findByPk(id, { include: [{ all: true }] });
+    const category = await db.Category.findAll();
+    res.render("product-edit-form", { product: product, category: category });
   },
   update: (req, res) => {
     let errors = validationResult(req);
@@ -82,6 +82,7 @@ module.exports = {
       const id = req.params.id;
       db.Product.update(
         {
+          category: req.body.category,
           brand: req.body.brand,
           model: req.body.model,
           manufacture_year: req.body.manufacture_year,
@@ -91,7 +92,7 @@ module.exports = {
           motor_type: req.body.motor_type,
           description: req.body.description,
           price: req.body.price,
-          discount: req.body.discount
+          discount: req.body.discount,
         },
         {
           where: { id: id },
@@ -108,37 +109,38 @@ module.exports = {
       });
     }
   },
-  description: (req, res) => {
+  description: async (req, res) => {
     const id = req.params.id;
+    const category = await db.Category.findAll();
     const product = db.Product.findByPk(id).then((product) => {
-      edit_delete = req.session.usuarioLogueado != undefined
-      if(edit_delete){
+      edit_delete = req.session.usuarioLogueado != undefined;
+      if (edit_delete) {
         db.Users_Products.findAll({
           where: {
-            user_id: req.session.usuarioLogueado.id
-          }
+            user_id: req.session.usuarioLogueado.id,
+          },
         })
-        .then(prods => prods.filter(prod => prod.product_id == id))
-        .then(result => {
-          if(result.length == 0){
-            edit_delete = false
-          }else{
-            edit_delete = true
-          }
-          res.render("description", { 
-            product: product,
-            edit_delete: edit_delete
-          })
-        })
-      }else{
-        res.render("description", { 
+          .then((prods) => prods.filter((prod) => prod.product_id == id))
+          .then((result) => {
+            if (result.length == 0) {
+              edit_delete = false;
+            } else {
+              edit_delete = true;
+            }
+            res.render("description", {
+              product: product,
+              category: category,
+              edit_delete: edit_delete,
+            });
+          });
+      } else {
+        res.render("description", {
           product: product,
-          edit_delete: edit_delete
-        })
+          category: category,
+          edit_delete: edit_delete,
+        });
       }
-
     });
-    
   },
   destroy: (req, res) => {
     const id = req.params.id;

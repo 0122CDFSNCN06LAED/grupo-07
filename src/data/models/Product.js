@@ -8,6 +8,10 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false,
       autoIncrement: true,
     },
+    category: {
+      type: dataTypes.STRING(50),
+      allowNull: true,
+    },
     brand: {
       type: dataTypes.STRING(50),
       allowNull: false,
@@ -55,6 +59,7 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   let config = {
+    tableName: "products",
     timestamps: true,
     createdAt: false,
     updatedAt: false,
@@ -71,8 +76,11 @@ module.exports = (sequelize, dataTypes) => {
       foreignKey: "product_id",
       timestamps: false,
     });
+    Product.belongsTo(models.Category, {
+      as: "product_category",
+      foreignKey: "category",
+    });
   };
-
 
   return Product;
 };

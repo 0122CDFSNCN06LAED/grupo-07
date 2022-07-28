@@ -77,6 +77,9 @@
   </div>
   <div>
   <h3 class="h3-description-title margin-top">Características</h3>
+  <p class="h5-text">Categoria: <% category.forEach(e => { %>
+   <%= e.id == product.category ? e.cat : "" %> 
+  <% }) %></p>
   <p class="h5-text">Año de fabricación: <%=product.manufacture_year%></p>
   <p class="h5-text">Tipo de motor: <%=product.motor_type%></p>
   <p class="h5-text">Transmisión: <%=product.transmission%></p>

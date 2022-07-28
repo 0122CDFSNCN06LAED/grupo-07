@@ -11,9 +11,19 @@
       <% if (locals.errors) { errors.forEach(error => { %>
         <p class="feedback is-danger"><%= error.msg%></p>
       <% })}%>
-
       <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-        <div class="register_container">       
+        <div class="register_container">   
+          <div class="name-product">
+            <h4 class="item-title">Indica categoria</h4>
+                  <select class="input" name="category" id="category">
+                    <% category.forEach(category => { %>
+                      <option name="category" value="<%= category.id %>"
+                        <%=product.product_category.id==category.id? "selected" : "" %>><%= category.cat %>
+                      </option>
+                      <% } )%>
+
+                  </select>
+          </div>     
           <div class="name-product">
             <h4 class="item-title">Indica marca </h4>
             <input

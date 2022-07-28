@@ -14,7 +14,14 @@ const productsApiController = {
           ),
           "name",
         ],
+        "manufacture_year",
+        "color",
+        "door_number",
+        "transmission",
+        "motor_type",
         "description",
+        "price",
+        "discount",
         [
           db.Product.sequelize.fn(
             "CONCAT",
@@ -27,7 +34,7 @@ const productsApiController = {
     }).then((products) => {
       return res.status(200).json({
         count: products.length,
-        users: products,
+        products: products,
       });
     });
   },

@@ -9,10 +9,12 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const userLoggedMiddleware = require("../src/middlewares/userLoggedMiddleware");
 const cookies = require("cookie-parser");
+const cors = require("cors");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(cors("*"));
 app.use(
   session({ secret: "secreto!", resave: false, saveUninitialized: false })
 );
