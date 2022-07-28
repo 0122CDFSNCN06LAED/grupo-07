@@ -73,7 +73,10 @@
   </div>
   <div class="buttons2 margin-top centered">
     <button class="button-send" type="submit">Realizar consulta</button>
-    <button class="button-send" type="submit">Agregar al carrito</button>
+    <form action="/carrito/add" method="POST">
+      <input type="hidden" name="id" value="<%= product.id %>" />
+      <button class="button-send" type="submit">Agregar al carrito</button>
+    </form>
   </div>
   <div>
   <h3 class="h3-description-title margin-top">Características</h3>

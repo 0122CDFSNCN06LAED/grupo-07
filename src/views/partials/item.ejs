@@ -1,0 +1,30 @@
+<% products.forEach(prod => { %>
+    <li>
+        <h2>
+            <a href="/products/description/<%= prod.id %>">
+                <%= prod.brand %> <%= prod.model %>
+            </a>
+        </h2>
+        <span>Precio unitario final: $<%= prod.price*(1-prod.discount/100) %> </span>
+        <div class="forms">
+
+            <form action="/carrito/update" method="POST" class="update">
+                <input type="hidden" name="id" value="<%= prod.id %>" />
+               <span>Cantidad:</span> <input type='number' name="quantity" value="<%= prod.quantity %>" id="quantity">
+                <button type="submit">
+                    <i class="fa-solid fa-circle-check"></i>
+                </button>
+            </form>
+            
+            <form action="/carrito/delete" method="POST" class="delete">
+                <input type="hidden" name="id" value="<%= prod.id%>" />
+                <button type="submit">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </form>
+        </div>
+        <span>Precio total: $<%= prod.price*(1-prod.discount/100)*prod.quantity %> </span>
+    
+    
+    </li>
+    <% }) %>

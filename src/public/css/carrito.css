@@ -1,0 +1,87 @@
+.carrito_container{
+    display: flex;
+    border: 1px solid red;
+    width: 70vw;
+    max-width: 1000px;
+}
+
+.carrito{
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    /* background-color: snow; */
+    max-height: 75vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    gap: 20px;
+    box-shadow: 0px 0px 10px #8bb6b9;
+    
+}
+
+.carrito li {
+    background-color: rgb(233, 233, 233);
+    padding: 10px;
+    gap: 5px;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.carrito span{
+    font-size: 20px;
+}
+
+#quantity{
+    text-align: center;
+    width: 100px;
+    font-size: 15px;
+
+}
+
+.forms{
+    display: flex;
+    gap: 20px;
+}
+
+.update{
+    display: flex;
+    gap: 20px;
+}
+
+.update button{
+    background: gold;
+    width: 30px;
+}
+.delete button{
+    background: crimson;
+    color: snow;
+    width: 30px;
+    font-size: 17px;
+}
+
+.carrito_total{
+    padding: 40px;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.purchase{
+    /* border: 1px solid red; */
+    font-size: 15px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-around;
+    gap: 40px;
+    padding: 10px;
+}
+
+.purchase button{
+    width: 30vw;
+    max-width: 200px;
+}

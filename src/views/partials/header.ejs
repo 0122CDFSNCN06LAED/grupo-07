@@ -15,6 +15,10 @@
     <li><a href="/products/create">Vende tu auto</a></li>
     <% if (locals.isLogged) { %>
       <li>
+        <a href="/carrito/">Carrito</a>
+        <i class="fa-solid fa-cart-shopping"></i>
+      </li>
+      <li>
         <a href="/users/user-profile">Perfil de usuario</a>
         <i class="fa-solid fa-user"></i>
       </li>
@@ -22,7 +26,7 @@
         <a href="/users/logout">Desloguear</a>
         <i class="fa-solid fa-arrow-right-from-bracket"></i>
       </li>
-    <% } else{%>
+      <% } else{%>
       <li>
         <a href="/users/login">Ingresá</a>
         <i class="fa-solid fa-right-to-bracket"></i>
