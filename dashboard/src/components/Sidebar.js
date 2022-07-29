@@ -42,7 +42,7 @@ function SideBar() {
       <li className="nav-item">
         <NavLink className="nav-link" to="/users" activeClassName="active">
           <i className="fas fa-fw fa-folder"></i>
-          <span>Usuarios</span>
+          <span>Productos por categoria</span>
         </NavLink>
       </li>
 

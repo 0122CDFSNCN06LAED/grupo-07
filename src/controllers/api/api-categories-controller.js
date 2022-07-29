@@ -11,6 +11,18 @@ const categoriesApiController = {
       });
     });
   },
+  detail: async (req, res) => {
+    db.Category.findAll({
+      include: { model: db.Product, required: true, as: "products"},
+      attributes: ["id", "cat"],
+    }).then((categories) => {
+      console.log(categories[1].products.length)
+      return res.status(200).json({
+        count: categories.length,
+        categories: categories,
+      });
+    });
+  },
 };
 
 module.exports = categoriesApiController;

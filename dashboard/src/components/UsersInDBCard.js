@@ -1,10 +1,10 @@
 import BigCard from "./BigCard";
-import UsersInDb from "./UsersInDb";
+import Categories from "./Categories";
 
 export default function UsersInDbCard() {
   return (
-    <BigCard title="Usuarios en base de datos">
-      <UsersInDb />
+    <BigCard title="Total de productos por categorias">
+      <Categories />
     </BigCard>
   );
 }
