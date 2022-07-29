@@ -32,7 +32,6 @@ class UsersInDb extends Component {
   async componentDidMount() {
     const response = await fetch("http://localhost:3000/api/users");
     const usersListData = await response.json();
-    console.log(usersListData);
     this.setState({
       users: usersListData.users,
     });

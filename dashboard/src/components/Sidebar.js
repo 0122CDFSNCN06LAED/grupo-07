@@ -48,9 +48,13 @@ function SideBar() {
 
       {/* <!-- Nav Item - Charts --> */}
       <li className="nav-item">
-        <NavLink className="nav-link" to="/xd" activeClassName="active">
+        <NavLink
+          className="nav-link"
+          to="/last-product"
+          activeClassName="active"
+        >
           <i className="fas fa-fw fa-chart-area"></i>
-          <span>xd</span>
+          <span>Ultimo producto</span>
         </NavLink>
       </li>
 

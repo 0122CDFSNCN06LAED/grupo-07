@@ -15,7 +15,6 @@ class ProductsList extends Component {
   async updateProducts() {
     const response = await fetch(`http://localhost:3000/api/products`);
     const productsData = await response.json();
-    console.log(productsData);
 
     this.setState({
       products: productsData.products,
@@ -53,7 +52,7 @@ class ProductsList extends Component {
               <th scope="col">Descripcion</th>
               <th scope="col">Precio de lista</th>
               <th scope="col">Descuento</th>
-              <th scope="col">Precio total</th>
+              <th scope="col">Precio final</th>
             </tr>
           </thead>
           <tbody>

@@ -1,11 +1,11 @@
 import UsersInDbCard from "./UsersInDBCard";
-import LastMovieInDb from "./LastMovieCard";
+import LastProductInDb from "./LastProductCard";
 
 function BigCardRow() {
   return (
     <div className="row">
       {/* <!-- Last Movie in DB --> */}
-      <LastMovieInDb />
+      <LastProductInDb />
       <UsersInDbCard />
     </div>
   );

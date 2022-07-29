@@ -30,6 +30,14 @@ const productsApiController = {
           ),
           "detail",
         ],
+        [
+          db.Product.sequelize.fn(
+            "CONCAT",
+            "http://localhost:3000//img/products-img/",
+            db.Product.sequelize.col("image")
+          ),
+          "image",
+        ],
       ],
     }).then((products) => {
       return res.status(200).json({
