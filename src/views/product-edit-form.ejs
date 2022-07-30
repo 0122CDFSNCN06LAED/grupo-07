@@ -73,16 +73,16 @@
               <h4 class="item-title">Tipo de motor</h4>
               <input class="input" type="text" name="motor_type" id="motor_type" placeholder="Ej: Nafta" value="<%= locals.old && old.brand? old.brand : product.motor_type %>"/>
             </div>
-          <!-- <div>
+          <div>
             <h4 class="item-title">Carga una imagen</h4>
             <input
             type="file"
-            name="image_edit"
+            name="image"
             id="image"
             class="input"
-            value="<%= locals.old && old.brand? 'hola' : 'hols2' %>"
-          />
-          </div> -->
+            value="<%= locals.old && old.image? old.image : product.image %>"
+            />
+          </div>
 
           <div class="fuel-type">
             <h4 class="item-title">Descripción</h4>

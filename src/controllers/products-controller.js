@@ -76,7 +76,9 @@ module.exports = {
     const category = await db.Category.findAll();
     res.render("product-edit-form", { product: product, category: category });
   },
-  update: (req, res) => {
+  update: async (req, res) => {
+    const id = req.params.id;
+    const product = await db.Product.findByPk(id);
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       const id = req.params.id;
@@ -93,6 +95,7 @@ module.exports = {
           description: req.body.description,
           price: req.body.price,
           discount: req.body.discount,
+          image: req.file ? req.file.filename : product.image
         },
         {
           where: { id: id },

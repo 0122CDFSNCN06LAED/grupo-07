@@ -13,7 +13,7 @@
           alt="En ruedas"
           class="user-img"
         />
-        <form action="/users/<%= user.id %>?_method=PUT" method="POST">
+        <form action="/users/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
           <div class="register_nombre">
             <h4>Nombre</h4>
             <input
@@ -55,6 +55,16 @@
               name="email"
               id="email"
               value="<%= user.email %>"
+            />
+          </div>
+
+          <div class="register_image">
+            <h4>Imagen</h4>
+            <input
+              class="input"
+              type="file"
+              name="image"
+              id="image"
             />
           </div>
 

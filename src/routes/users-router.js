@@ -31,7 +31,7 @@ router.get('/logout', userController.logout)
 router.get("/user-profile" ,guestMiddleware,userController.userProfile);
 
 /*** EDIT AN USER ***/
-router.put("/:id", userController.update);
+router.put("/:id",upload.single("image") ,userController.update);
 
 /*** DELETE AN USER ***/
 router.delete('/:id', userController.destroy);

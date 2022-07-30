@@ -79,7 +79,8 @@ module.exports = {
   },
   update: async (req, res) => {
     const id = req.params.id;
-
+    const user = await db.User.findByPk(id);
+ 
     db.User.update(
       {
         first_name: req.body.first_name,
@@ -87,7 +88,7 @@ module.exports = {
         username: req.body.username,
         email: req.body.email,
         birth_date: req.body.birthdate,
-
+        avatar: req.file ? req.file.filename : user.avatar
       },
       {
         where: { id: id },
