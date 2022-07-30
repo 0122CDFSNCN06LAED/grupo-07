@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import logo from "../assets/logo-DH.png";
+import logo from "../assets/logo.svg";
 
 function SideBar() {
   return (
@@ -16,7 +16,7 @@ function SideBar() {
           href="/"
         >
           <div className="sidebar-brand-icon">
-            <img className="w-100" src={logo} alt="Digital House" />
+            <img className="w-75" src={logo} alt="enruedas" />
           </div>
         </a>
       }
