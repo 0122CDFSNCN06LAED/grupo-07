@@ -1,11 +1,5 @@
-const path = require("path");
 const db = require("../data/models");
-const sequelize = db.sequelize;
-const { Op } = require("sequelize");
-const moment = require("moment");
-const Product = require("../data/models/Product");
-const { validationResult } = require("express-validator");
-const productsController = require("./products-controller");
+const mp = require('../modules/mercadoPago')
 
 module.exports = {
     carrito: (req,res) => {
@@ -36,7 +30,8 @@ module.exports = {
         }else{
             req.session.carrito.push({
                 id: id,
-                quantity: 1
+                quantity: 1,
+                unit_price: parseInt(req.body.unit_price)
             })
         }
         let ids = []
@@ -60,7 +55,7 @@ module.exports = {
         }else {
             req.session.carrito = req.session.carrito.map( item => {
                 if(item.id == req.body.id){
-                    item.quantity = req.body.quantity
+                    item.quantity = parseInt(req.body.quantity)
                 }
                 return item
             })
@@ -88,7 +83,6 @@ module.exports = {
         req.session.carrito.forEach(product => {
             ids.push(product.id)
         });
-        console.log('ids',ids);
         db.Product.findAll({
             where: {
                 id: ids
@@ -117,7 +111,16 @@ module.exports = {
             res.render('carrito-compras', {products: product})
         })
     },
-    process: (req,res) =>{
-        res.redirect('/')
+    process: async (req,res) =>{
+        try {
+            let items = req.session.carrito.map(item => Object({...item,currency_id:'ARS'}))
+            let link = await mp(items,12,0)
+            return res.redirect(link.body.init_point)
+        } catch (error) {
+            return res.send('error')
+        }
+    },
+    feedback: (req,res) =>{
+        return res.send('recibimos reespuesta de mp')
     }
 }
