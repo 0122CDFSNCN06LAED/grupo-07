@@ -75,6 +75,7 @@
     <button class="button-send" type="submit">Realizar consulta</button>
     <form action="/carrito/add" method="POST">
       <input type="hidden" name="id" value="<%= product.id %>" />
+      <input type="hidden" name="unit_price" value="<%= product.price*(1-product.discount/100) %>" />
       <button class="button-send" type="submit">Agregar al carrito</button>
     </form>
   </div>
