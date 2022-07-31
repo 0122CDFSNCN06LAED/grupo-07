@@ -1,18 +1,17 @@
 .carrito_container{
     display: flex;
-    border: 1px solid red;
     width: 70vw;
     max-width: 1000px;
 }
 
 .carrito{
     width: 60vw;
+    min-width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 30px;
-    /* background-color: snow; */
     max-height: 75vh;
     overflow: hidden;
     overflow-y: scroll;
@@ -26,6 +25,7 @@
     padding: 10px;
     gap: 5px;
     width: 40vw;
+    min-width: 400px;
     display: flex;
     flex-direction: column;
 }

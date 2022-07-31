@@ -21,6 +21,7 @@
   text-align: center;
   position: absolute;
   right: 20px;
+  margin-right: 5px;
   margin-top: 5px;
 }
 
@@ -35,6 +36,7 @@
 
 .navbar {
   font-size: 10px;
+  display: none;
 }
 
 .img-product {
@@ -156,18 +158,55 @@
   margin-right: 9%;
 }
 
+.menu-vertical{
+  display: flex;
+  display: none;
+  flex-direction: column;
+}
+
 @media (min-width: 460px) {
   /*--------Header--------*/
   .header {
     padding: 0 20px;
   }
 
+  .navbar {
+    font-size: 10px;
+    display: flex;
+  }
+
   .container-header-top {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .hamburguer-buttom {
     width: 50%;
+    padding: auto;
+  }
+
+
+  #right-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+
+  .hamburguesa:hover .menu-vertical{
+    display: block;
+  }
+
+  .hamburguesa:hover .hamburguer-buttom{
+    display: none;
+  }
+
+  .hamburguesa{
+    height: 50%;
+    align-items: center;
+    justify-content: center;
   }
 
   .logo {
@@ -179,10 +218,10 @@
     width: 33%;
   }
 
-  .hamburguer-buttom {
+  /* .hamburguer-buttom {
     width: 50%;
     padding-top: 7px;
-  }
+  } */
 
   .title-header {
     color: black;
