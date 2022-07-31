@@ -11,62 +11,44 @@
     <p class="title-header">EN RUEDAS</p>
   </div>
 
-  <div id="right-header">
-
-
-    <div class="hamburguesa">
-      <a href="#" class="hamburguer-buttom">
-        <i class="fa-solid fa-bars"></i>
-      </a>
-      <ul class="menu-vertical">
-        <li>
-          <a href="/products">Compra tu auto</a>
-        </li>
-        <li>
-          <a href="/products/own">Vende tu auto</a>
-        </li>
-        <% if (locals.isLogged) { %>
-        <li>
-          <a href="/carrito/">Carrito <i class="fa-solid fa-cart-shopping"></i></a>
-        </li>
-        <li>
-          <a href="/users/user-profile">Perfil de usuario<i class="fa-solid fa-user"></i></a>
-        </li>
-        <li>
-          <a href="/users/logout">Desloguear <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-        </li>
-        <% } else{%>
-        <li>
-          <a href="/users/login">Ingresa <i class="fa-solid fa-right-to-bracket"></i></a>
-        </li>
-        <%} %>
-      </ul>
-    </div>
-
+  <div class="hamburguesa">
+    <a href="#" class="hamburguer-buttom">
+      <i class="fa-solid fa-bars"></i>
+    </a>
   </div>
 </div>
-<div class="navbar">
+
+<div class="navbar navbar-active">
   <ul class="items-navbar">
     <li><a href="/products">Comprá tu auto </a></li>
     <li><a href="/products/own">Vende tu auto</a></li>
     <% if (locals.isLogged) { %>
-      <li>
-        <a href="/carrito/">Carrito</a>
-        <i class="fa-solid fa-cart-shopping"></i>
-      </li>
-      <li>
-        <a href="/users/user-profile">Perfil de usuario</a>
-        <i class="fa-solid fa-user"></i>
-      </li>
-      <li>
-        <a href="/users/logout">Desloguear</a>
-        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-      </li>
-      <% } else{%>
-      <li>
-        <a href="/users/login">Ingresá</a>
-        <i class="fa-solid fa-right-to-bracket"></i>
-      </li>
+    <li>
+      <a href="/carrito/">Carrito</a>
+      <i class="fa-solid fa-cart-shopping"></i>
+    </li>
+    <li>
+      <a href="/users/user-profile">Perfil de usuario</a>
+      <i class="fa-solid fa-user"></i>
+    </li>
+    <li>
+      <a href="/users/logout">Desloguear</a>
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </li>
+    <% } else{%>
+    <li>
+      <a href="/users/login">Ingresá</a>
+      <i class="fa-solid fa-right-to-bracket"></i>
+    </li>
     <%} %>
   </ul>
 </div>
+
+<script>
+  const navbar = document.querySelector(".navbar");
+  const button = document.querySelector(".hamburguesa");
+
+  button.addEventListener("click", () => {
+    navbar.classList.toggle("navbar");
+  });
+</script>
