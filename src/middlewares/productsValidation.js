@@ -30,7 +30,7 @@ const productsValidation = (control) => {
       if (!file) {
         throw new Error("Tienes que subir una imagen");
       } else {
-        let extensions = [".jpg", "jpeg", ".png", ".gif"];
+        let extensions = [".jpg", ".jpeg", ".png", ".gif"];
         let fileExtension = path.extname(file.originalname);
         if (extensions.includes(fileExtension) == false) {
           throw new Error("Debe ser un archivo valido (JPG, JPEG, PNG, GIF)");

@@ -63,10 +63,14 @@ module.exports = {
         })
         .catch((error) => res.send(error));
     } else {
-      res.render("product-create-form", {
-        errors: errors.array(),
-        old: req.body,
-      });
+      db.Category.findAll()
+      .then(category => {
+        res.render("product-create-form", {
+          category: category ,
+          errors: errors.array(),
+          old: req.body,
+        });
+      })
     }
   },
 
