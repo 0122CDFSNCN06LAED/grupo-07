@@ -13,6 +13,16 @@ module.exports = {
       res.render("products", { products: product });
     });
   },
+  consulta: (req,res) =>{
+    const id = req.params.id;
+    db.Product.findByPk(id)
+    .then(result => {
+      res.render('consulta',{product: result})
+    })
+  },
+  feedback: (req,res) => {
+    res.render('feedback')
+  },
   search: (req, res) => {
     db.Product.findAll({
       where: {
@@ -23,6 +33,21 @@ module.exports = {
     }).then((product) => {
       res.render("products", { products: product });
     });
+  },
+  own: async (req,res) => {
+    const id = req.session.usuarioLogueado.id
+    const ids = await db.Users_Products.findAll({
+      where: {
+        user_id: id
+      }
+    })
+    const products_ids = ids.map(item => item.dataValues.product_id);
+    const products = await db.Product.findAll({
+      where: {
+        id: products_ids
+      }
+    })
+    res.render('productosPropios',{products})
   },
   create: async (req, res) => {
     const category = await db.Category.findAll();

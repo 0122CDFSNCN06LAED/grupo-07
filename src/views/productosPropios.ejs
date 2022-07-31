@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <header class="header"><%- include("./partials/header.ejs")%></header>
+    <main>
+      <h1>Productos en venta</h1>
+      <div class="carrito ownProductsContainer">
+        <%- include("./partials/ownItem.ejs") %>
+    </div>
+
+    <form action="/products/create" method="GET">
+        <button class="button-send" type="submit">Crear producto nuevo</button>
+    </form>
+
+    </main>
+    <footer><%- include("./partials/footer.ejs")%></footer>
+  </body>
+</html>

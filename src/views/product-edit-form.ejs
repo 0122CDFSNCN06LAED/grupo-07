@@ -6,7 +6,7 @@
   <body>
     <header class="header"><%- include("./partials/header.ejs")%></header>
     <main>
-      <h2 class="title-form">Editando: <i><%=product.brand%></i></h2>   
+      <h2 class="title-form">Editando: <i><%=product.brand%><%=product.model%></i></h2>   
       
       <% if (locals.errors) { errors.forEach(error => { %>
         <p class="feedback is-danger"><%= error.msg%></p>
@@ -84,7 +84,7 @@
             />
           </div>
 
-          <div class="fuel-type">
+          <div class="description">
             <h4 class="item-title">Descripción</h4>
             <input class="input" type="text" name="description" id="description" value="<%= locals.old && old.brand? old.brand : product.description %>" placeholder="Ej: no se" />
           </div>

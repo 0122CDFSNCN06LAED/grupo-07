@@ -50,7 +50,7 @@ const validaciones = (control) => {
         if (!file) {
           throw new Error("Tienes que subir una imagen");
         } else {
-          let extensions = [".jpg", "jpeg", ".png", ".gif"];
+          let extensions = [".jpg", ".jpeg", ".png", ".gif"];
           let fileExtension = path.extname(file.originalname);
           console.log(file);
           if (extensions.includes(fileExtension) == false) {

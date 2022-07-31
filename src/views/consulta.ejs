@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+  </head>
+  <body>
+    <header class="header"><%- include("./partials/header.ejs")%></header>
+    <main>
+      <h1>Hace tu consulta mdfk</h1>
+      <h3 class="title-form"><i><%=product.brand%> <%=product.model%></i></h3>   
+
+        <form action="/products/consulta" class="consulta_form" method="POST">
+            <textarea name="consulta" id="consulta" spellcheck="true">
+            </textarea>
+            <div class="buttons">
+                <button class="button-send" type="submit">Enviar consulta</button>
+              </div>
+        </form>
+
+
+
+    </main>
+    <footer><%- include("./partials/footer.ejs")%></footer>
+  </body>
+</html>

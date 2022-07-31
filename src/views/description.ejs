@@ -72,7 +72,9 @@
     <h1 class="h1-final-price">¡Precio final online $<%=Math.round(product.price*(1-product.discount/100),0)%>! </h1>
   </div>
   <div class="buttons2 margin-top centered">
-    <button class="button-send" type="submit">Realizar consulta</button>
+    <form action="/products/consulta/<%= product.id %>" class="consulta" method="GET">
+      <button class="button-send" type="submit">Realizar consulta</button>
+    </form>
     <form action="/carrito/add" method="POST">
       <input type="hidden" name="id" value="<%= product.id %>" />
       <input type="hidden" name="unit_price" value="<%= product.price*(1-product.discount/100) %>" />

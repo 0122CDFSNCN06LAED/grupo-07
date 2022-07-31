@@ -158,7 +158,7 @@
     margin-top: 20px;
     margin-left: 20px;
     width: calc(22vw - 10px);
-    max-height: 22vw;
+    max-height: 40vw;
   }
 
   .size-img {
@@ -169,3 +169,43 @@
     padding: 15px 0 15px;
   }
 }
+
+.consulta_form{
+  padding: 20px;
+}
+
+#consulta{
+  width: 40vw;
+  height: 30vh;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+#feedback{
+  width: 40vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+
+.imgOwn{
+  width: 300px;
+}
+
+.ownProductsContainer{
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.ownProduct{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ownProduct .desc{
+  width:45%;
+}
+

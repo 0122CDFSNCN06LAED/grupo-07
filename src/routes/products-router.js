@@ -27,7 +27,9 @@ router.get("/" ,productController.index);
 router.post('/search', productController.search)
 
 /*** CREATE ONE PRODUCT ***/
+router.get('/own',guestMiddleware,productController.own)
 router.get("/create",guestMiddleware, productController.create); // Get al formulario de creacion de un producto
+
 router.post(
   "/",
   upload.single("image"),
@@ -49,5 +51,8 @@ router.get("/description/:id/", productController.description);
 
 /*** DELETE ONE PRODUCT***/
 router.delete("/:id", productController.destroy);
+
+router.get('/consulta/:id',productController.consulta)
+router.post('/consulta/',productController.feedback)
 
 module.exports = router;

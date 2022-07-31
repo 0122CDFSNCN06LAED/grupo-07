@@ -1,0 +1,16 @@
+<% products.forEach(prod => { %>
+    <li>
+        <span>
+            <div class="ownProduct">
+                <div class="desc">
+                    <a href="/products/description/<%= prod.id %>">
+                        <%= prod.brand %> <%= prod.model %>
+                </div>
+                    <div class="imgOwn">
+                        <img src="/img/products-img/<%= prod.image %>" alt="<%= prod.brand %> <%= prod.model %>" class="size-img" />
+                    </div>
+                </a>
+            </div>
+        </span>
+    </li>
+    <% }) %>
